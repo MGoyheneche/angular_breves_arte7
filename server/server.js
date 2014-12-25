@@ -1,13 +1,47 @@
 var express = require('express'),
     path    = require('path'),
     mcapi   = require('mailchimp-api'),
-    app     = express();
+    app     = express(),
+    router  = express.Router();
 
 
 app.use(express.static(path.join(__dirname, '..', '.tmp')));
 app.use('/bower_components', express.static(path.join(__dirname, '..', 'client', 'bower_components')));
 
 var mc = new mcapi.Mailchimp(process.env.MAILCHIMP_API_KEY);
+
+
+router.get('/lists', function (req, res) {
+  mc.lists.list({}, function(data) {
+    res.send(data);
+  });
+});
+
+router.get('/lists/:id', function (req, res) {
+  // console.log(req.params);
+  mc.lists.list({filters:{list_id: req.params.id}}, function(listData) {
+    if (listData.total === 1)
+      res.send(listData.data[0]);
+
+    // mc.lists.members({id: req.params.id}, function(data) {
+    //   res.send(data.data);
+    // }, function (error) {
+    //   console.log(error);
+    //   if (error.name == "List_DoesNotExist") {
+    //     req.session.error_flash = "The list does not exist";
+    //   } else if (error.error) {
+    //     req.session.error_flash = error.code + ": " + error.error;
+    //   } else {
+    //     req.session.error_flash = "An unknown error occurred";
+    //   }
+    //   // res.redirect('/lists');
+    // });
+  });
+});
+
+
+app.use('/api/v1', router);
+
 
 app.get('/', function (req, res){
   var options = {
@@ -32,13 +66,7 @@ app.get('/', function (req, res){
 
 });
 
-app.get('/api', function (req, res) {
-  // res.send(' API is running');
-  // console.log(mc);
-  mc.lists.list({}, function(data) {
-    res.send(data.data);
-  });
-});
+
 
 var server = app.listen(3000, function () {
 

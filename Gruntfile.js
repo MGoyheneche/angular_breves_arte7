@@ -89,7 +89,6 @@ module.exports = function(grunt) {
 
   });
 
-
   // Load plugins that provides tasks.
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
