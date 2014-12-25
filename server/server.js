@@ -4,7 +4,7 @@ var express = require('express'),
 
 
 app.use(express.static(path.join(__dirname, '..', '.tmp')));
-app.use(express.static(path.join(__dirname, '..', 'client')));
+app.use('/bower_components', express.static(path.join(__dirname, '..', 'client', 'bower_components')));
 
 
 app.get('/', function (req, res){
