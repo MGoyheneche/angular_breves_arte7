@@ -1,17 +1,15 @@
 var express = require('express'),
     path    = require('path'),
+    mcapi   = require('mailchimp-api'),
     app     = express();
 
 
 app.use(express.static(path.join(__dirname, '..', '.tmp')));
 app.use('/bower_components', express.static(path.join(__dirname, '..', 'client', 'bower_components')));
 
+var mc = new mcapi.Mailchimp(process.env.MAILCHIMP_API_KEY);
 
 app.get('/', function (req, res){
-  // app.use(express.static('/'));
-  // res.send('server is running');
-  // console.log(path.join(__dirname, '..', '.tmp'));
-
   var options = {
     root: path.join(__dirname, '..', 'client'),
     dotfiles: 'deny',
@@ -35,7 +33,11 @@ app.get('/', function (req, res){
 });
 
 app.get('/api', function (req, res) {
-  res.send(' API is running');
+  // res.send(' API is running');
+  // console.log(mc);
+  mc.lists.list({}, function(data) {
+    res.send(data.data);
+  });
 });
 
 var server = app.listen(3000, function () {

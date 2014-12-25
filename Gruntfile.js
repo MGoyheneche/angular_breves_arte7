@@ -15,42 +15,29 @@ module.exports = function(grunt) {
       }
     },
 
-    // connect
-    connect: {
-      server: {
-        options: {
-          port: 5678,
-          base: ['client', '.tmp'],
-          open: true,
-          hostname: 'localhost',
-          livereload: true
-        }
-      }
-    },
-
     // watch
     watch: {
+      options: {
+        livereload: true,
+      },
       css: {
         files: ['client/styles/**/*.scss'],
-        tasks: ['sass'],
-      },
+        tasks: ['sass']      },
       script: {
-        files: [
-          'client/app/**/*.js',
-        ],
+        files: ['client/app/**/*.js'],
         tasks: ['concat:scripts']
       },
-      livereload: {
-        files: ['.tmp/styles/main.css', 'client/**/*.html', 'client/**/*.js'],
+      express: {
+        files:  [ 'server/server.js', 'client/index.html', '.tmp/styles/main.scss' ],
+        tasks: ['express:dev'],
         options: {
-          livereload: true
+          spawn: false // without this option specified express won't be reloaded
         }
       }
     },
 
     concat :{
       scripts : {
-
         options : {
           banner : '\'use strict\';\n\n',
           process : function (src, filepath){
@@ -58,10 +45,7 @@ module.exports = function(grunt) {
           }
         },
         src: [
-          // 'client/app/app.js',
           'client/app/**/*.js',
-          // '!{<%= project.tmp %>,<%= project.client %>}/app/**/*.spec.js',
-          // '!{<%= project.tmp %>,<%= project.client %>}/app/**/*.mock.js',
         ],
         dest: '.tmp/app/combined-scripts.js'
       }
@@ -93,25 +77,28 @@ module.exports = function(grunt) {
         //   script: 'path/to/test/server.js'
         // }
       }
-    }
+    },
 
+    // open 
+    open : {
+      dev : {
+      path: 'http://localhost:3000',
+        app: 'Google Chrome'
+      }
+    }
 
   });
 
 
   // Load plugins that provides tasks.
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-open');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean:dev' ,'sass', 'concat:scripts', 'express:dev','watch']);
-  
-
-  // unused tasks
-  // connect
+  grunt.registerTask('default', ['clean:dev' ,'sass', 'concat:scripts', 'express:dev', 'open', 'watch']);
 
 };
