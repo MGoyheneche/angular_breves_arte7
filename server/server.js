@@ -3,9 +3,14 @@ var express = require('express'),
     app     = express();
 
 
+app.use(express.static(path.join(__dirname, '..', '.tmp')));
+app.use(express.static(path.join(__dirname, '..', 'client')));
+
+
 app.get('/', function (req, res){
   // app.use(express.static('/'));
   // res.send('server is running');
+  // console.log(path.join(__dirname, '..', '.tmp'));
 
   var options = {
     root: path.join(__dirname, '..', 'client'),
@@ -16,8 +21,8 @@ app.get('/', function (req, res){
     }
   };
 
-  // var fileName = req.params.name;
-  res.sendFile('index.html', options, function (err) {
+  var fileName = 'index.html';
+  res.sendFile(fileName, options, function (err) {
     if (err) {
       console.log(err);
       res.status(err.status).end();
