@@ -79,10 +79,10 @@ module.exports = function(grunt) {
       }
     },
 
-    // open 
-    open : {
-      dev : {
-      path: 'http://localhost:3000',
+    // open
+    open: {
+      dev: {
+        path: 'http://localhost:3000',
         app: 'Google Chrome'
       }
     }
@@ -98,6 +98,26 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-open');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean:dev' ,'sass', 'concat:scripts', 'express:dev', 'open', 'watch']);
+  grunt.registerTask('default', ['clean:dev' ,'sass', 'concat:scripts', 'express:dev', 'open:dev', 'watch']);
+
+  // - dist/
+// Update server environment to modify path
+  //   - server/
+  //     - server.js
+  //     - youtube_movies.js
+
+  //   - public/
+  //     - app/
+  //       - app.min.js
+  //       - main.min.css
+  //       views/
+  //         - ...
+  //     - assets/
+  //       - images/
+  //         - ...
+  //       - fonts/
+  //         - ...
+  //     - bower_components/
+  //       - ...
 
 };

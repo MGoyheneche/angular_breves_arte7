@@ -18,7 +18,6 @@ router.get('/lists', function (req, res) {
 });
 
 router.get('/lists/:id', function (req, res) {
-  // console.log(req.params);
   mc.lists.list({filters:{list_id: req.params.id}}, function(listData) {
     if (listData.total === 1)
       res.send(listData.data[0]);
@@ -37,6 +36,10 @@ router.get('/lists/:id', function (req, res) {
     //   // res.redirect('/lists');
     // });
   });
+});
+
+router.get('/today_movies', function (req, res) {
+  res.sendFile(path.join(__dirname, 'youtube_movies.json'));
 });
 
 
