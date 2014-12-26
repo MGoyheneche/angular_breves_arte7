@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         tasks: ['sass']      },
       script: {
         files: ['client/app/**/*.js'],
-        tasks: ['concat:scripts']
+        tasks: ['concat:dev']
       },
       express: {
         files:  [ 'server/server.js',

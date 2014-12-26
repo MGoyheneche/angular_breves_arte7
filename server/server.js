@@ -10,7 +10,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '..', 'public')));
 } else {
   app.use(express.static(path.join(__dirname, '..', '.tmp')));
-  app.use('/bower_components', express.static(path.join(__dirname, '..', 'client', 'bower_components')));
+  // app.use('/bower_components', express.static(path.join(__dirname, '..', 'client', 'bower_components')));
+  app.use(express.static(path.join(__dirname, '..', 'client')));
 }
 
 var mc = new mcapi.Mailchimp(process.env.MAILCHIMP_API_KEY);
