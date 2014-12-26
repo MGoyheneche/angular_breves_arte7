@@ -1,4 +1,19 @@
 angular.module('brevesApp', [])
+  .config(function($routeProvider, $locationProvider) {
+    $routeProvider
+      .when('/home', {
+        templateUrl: 'home/home_view.html',
+        controller: 'HomeController'
+      })
+      .otherwise('/home');
+
+  // configure html5 to get links working on jsfiddle
+  $locationProvider.html5Mode(true);
+});
+
+
+
+
 // BadController will fail to instantiate, due to relying on automatic function annotation,
 // rather than an explicit annotation
 .controller('BadController', function($scope) {
