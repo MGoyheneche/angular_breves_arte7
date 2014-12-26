@@ -1,5 +1,5 @@
 function HomeController($scope) {
-    $scope.jobs = jobs;
+    $scope.jobs = "jobs";
     console.log('hello');
 }
 

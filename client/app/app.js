@@ -3,7 +3,7 @@ angular.module('brevesApp', ['ngRoute']);
 function RouteConfig ($routeProvider) {
   $routeProvider
     .when('/home', {
-      templateUrl: 'app/components/home/home.view.html',
+      templateUrl: 'app/components/home/homeView.html',
       controller: 'HomeCtrl'
       // resolve: {
       //   jobs: function(Job) {
