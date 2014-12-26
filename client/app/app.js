@@ -1,4 +1,4 @@
-angular.module('myApp', [])
+angular.module('brevesApp', [])
 // BadController will fail to instantiate, due to relying on automatic function annotation,
 // rather than an explicit annotation
 .controller('BadController', function($scope) {

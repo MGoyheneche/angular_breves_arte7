@@ -45,6 +45,7 @@ module.exports = function(grunt) {
       },
       express: {
         files:  [ 'server/server.js',
+                  'client/app/**/*.js',
                   'client/index.html',
                   '.tmp/styles/main.scss' ],
         tasks: ['express:dev'],
