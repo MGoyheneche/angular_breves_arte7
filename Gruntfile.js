@@ -3,14 +3,30 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
 
+    // vars
+    project: {
+      client: 'client',
+      server: 'server',
+      dist: 'dist',
+      tmp: '.tmp'
+    },
+
     // sass
     sass: {
-      dist: {
+      dev: {
         options: {
           style: 'expanded'
         },
         files: {
-          '.tmp/styles/main.css': 'client/styles/main.scss'
+          '.tmp/assets/styles/main.css': 'client/styles/main.scss'
+        }
+      },
+      build: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          '<%= project.dist %>/public/assets/styles/main.css': '<%= project.client %>/styles/main.scss'
         }
       }
     },
@@ -28,7 +44,9 @@ module.exports = function(grunt) {
         tasks: ['concat:scripts']
       },
       express: {
-        files:  [ 'server/server.js', 'client/index.html', '.tmp/styles/main.scss' ],
+        files:  [ 'server/server.js',
+                  'client/index.html',
+                  '.tmp/styles/main.scss' ],
         tasks: ['express:dev'],
         options: {
           spawn: false // without this option specified express won't be reloaded
@@ -36,8 +54,8 @@ module.exports = function(grunt) {
       }
     },
 
-    concat :{
-      scripts : {
+    concat: {
+      dev: {
         options : {
           banner : '\'use strict\';\n\n',
           process : function (src, filepath){
@@ -48,12 +66,25 @@ module.exports = function(grunt) {
           'client/app/**/*.js',
         ],
         dest: '.tmp/app/combined-scripts.js'
+      },
+      build: {
+        options : {
+          banner : '\'use strict\';\n\n',
+          process : function (src, filepath){
+            return '/* '+filepath+' */\n(function(){\n\n'+src+'\n\n})();';
+          }
+        },
+        src: [
+          '<%= project.client %>/app/**/*.js',
+        ],
+        dest: '<%= project.dist %>/public/app/combined-scripts.js'
       }
     },
 
     // clean
     clean: {
-      dev: ['.tmp']
+      dev: ['.tmp'],
+      build: ['dist'],
     },
 
     // express
@@ -67,10 +98,10 @@ module.exports = function(grunt) {
         }
       },
       prod: {
-        // options: {
-        //   script: 'path/to/prod/server.js',
-        //   node_env: 'production'
-        // }
+        options: {
+          script: 'dist/server/server.js',
+          node_env: 'production'
+        }
       },
       test: {
         // options: {
@@ -85,7 +116,39 @@ module.exports = function(grunt) {
         path: 'http://localhost:3000',
         app: 'Google Chrome'
       }
-    }
+    },
+
+    // copies files
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= project.client %>',
+          dest: '<%= project.dist %>/public',
+          src: [
+            '*.{ico,png,txt}',
+            'bower_components/**/*',
+            // 'assets/images/{,*/}*.{webp}',
+            // 'assets/fonts/',
+            'assets/**/*',
+            'index.html'
+          ]
+        }, {
+        //   expand: true,
+        //   cwd: '<%= project.tmp %>/images',
+        //   dest: '<%= project.dist %>/public/assets/images',
+        //   src: ['generated/*']
+        // }, {
+          expand: true,
+          dest: '<%= project.dist %>',
+          src: [
+            'package.json',
+            'server/**/*'
+          ]
+        }]
+      }
+    },
 
   });
 
@@ -96,9 +159,27 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-open');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean:dev' ,'sass', 'concat:scripts', 'express:dev', 'open:dev', 'watch']);
+  grunt.registerTask( 'default', [
+    'clean:dev',
+    'clean:build',
+    'sass:dev',
+    'concat:dev',
+    'express:dev',
+    'open:dev',
+    'watch'
+  ]);
+
+  grunt.registerTask( 'build', [
+    'clean:dev',
+    'clean:build',
+    'copy',
+    'sass:build',
+    'concat:build',
+    'express:prod',
+  ]);
 
   // - dist/
 // Update server environment to modify path
