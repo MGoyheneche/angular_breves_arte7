@@ -5,18 +5,13 @@ function RouteConfig ($routeProvider) {
     .when('/home', {
       templateUrl: 'app/components/home/homeView.html',
       controller: 'HomeCtrl'
-      // resolve: {
-      //   jobs: function(Job) {
-      //     // TODO: research javascript promise
-      //     return Job.query().$promise;
-      //   }
-      // }
+    })
+    .when('/suggestions', {
+      templateUrl: 'app/components/suggestion/suggestionView.html',
+      controller: 'SuggestionCtrl'
     })
 
     .otherwise('/home');
-
-  // $locationProvider
-  //   .html5Mode(false);
 }
 
 angular.module('brevesApp').config(RouteConfig);
