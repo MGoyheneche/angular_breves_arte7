@@ -210,7 +210,8 @@ module.exports = function(grunt) {
     'clean:dev',
     'clean:build',
     'copy',
-    'sass:build',
+    'less',
+    'autoprefixer',
     'concat:build',
     'express:prod',
   ]);
