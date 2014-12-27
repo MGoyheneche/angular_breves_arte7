@@ -31,14 +31,45 @@ module.exports = function(grunt) {
       }
     },
 
+    less: {
+      options: {
+        paths: [
+          '<%= project.client %>/bower_components',
+          // '<%= project.client %>/app',
+          '<%= project.client %>/assets/styles'
+        ]
+      },
+      server: {
+        files: {
+          '<%= project.tmp %>/assets/styles/main.css' : '<%= project.client %>/styles/main.less'
+        }
+      },
+    },
+
+    // Add vendor prefixed styles
+    autoprefixer: {
+      options: {
+        browsers: ['last 1 version']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= project.tmp %>',
+          src: '{,*/}*.css',
+          dest: '<%= project.tmp %>'
+        }]
+      }
+    },
+
     // watch
     watch: {
       options: {
         livereload: true,
       },
-      css: {
-        files: ['client/styles/**/*.scss'],
-        tasks: ['sass']      },
+      less: {
+        files: ['<%= project.client %>/assets/styles/**/*.less'],
+        tasks: ['less', 'autoprefixer']
+      },
       script: {
         files: ['client/app/**/*.js'],
         tasks: ['concat:dev']
@@ -46,8 +77,8 @@ module.exports = function(grunt) {
       express: {
         files:  [ 'server/server.js',
                   'client/app/**/*.js',
-                  'client/index.html',
-                  '.tmp/styles/main.scss' ],
+                  'client/**/*.html',
+                  '.tmp/styles/**/*.scss' ],
         tasks: ['express:dev'],
         options: {
           spawn: false // without this option specified express won't be reloaded
@@ -157,7 +188,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -166,7 +198,8 @@ module.exports = function(grunt) {
   grunt.registerTask( 'default', [
     'clean:dev',
     'clean:build',
-    'sass:dev',
+    'less',
+    'autoprefixer',
     'concat:dev',
     'express:dev',
     'open:dev',

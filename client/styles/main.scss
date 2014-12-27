@@ -1,9 +1,0 @@
-@import 'base';
-
-$primary: #fff;
-$secondary: #333;
-
-body {
-  @extend .container;
-  background: $primary;
-}
