@@ -12,24 +12,24 @@ module.exports = function(grunt) {
     },
 
     // sass
-    sass: {
-      dev: {
-        options: {
-          style: 'expanded'
-        },
-        files: {
-          '.tmp/assets/styles/main.css': 'client/styles/main.scss'
-        }
-      },
-      build: {
-        options: {
-          style: 'compressed'
-        },
-        files: {
-          '<%= project.dist %>/public/assets/styles/main.css': '<%= project.client %>/styles/main.scss'
-        }
-      }
-    },
+    // sass: {
+    //   dev: {
+    //     options: {
+    //       style: 'expanded'
+    //     },
+    //     files: {
+    //       '.tmp/assets/styles/main.css': 'client/styles/main.scss'
+    //     }
+    //   },
+    //   build: {
+    //     options: {
+    //       style: 'compressed'
+    //     },
+    //     files: {
+    //       '<%= project.dist %>/public/assets/styles/main.css': '<%= project.client %>/styles/main.scss'
+    //     }
+    //   }
+    // },
 
     less: {
       options: {
@@ -42,6 +42,11 @@ module.exports = function(grunt) {
       server: {
         files: {
           '<%= project.tmp %>/assets/styles/main.css' : '<%= project.client %>/styles/main.less'
+        }
+      },
+      build: {
+        files: {
+          '<%= project.dist %>/public/assets/styles/main.css' : '<%= project.client %>/styles/main.less'
         }
       },
     },
@@ -164,7 +169,8 @@ module.exports = function(grunt) {
             // 'assets/images/{,*/}*.{webp}',
             // 'assets/fonts/',
             'assets/**/*',
-            'index.html'
+            'index.html',
+            'app/**/*'
           ]
         }, {
         //   expand: true,
@@ -209,9 +215,9 @@ module.exports = function(grunt) {
   grunt.registerTask( 'build', [
     'clean:dev',
     'clean:build',
-    'copy',
-    'less',
     'autoprefixer',
+    'copy',
+    'less:build',
     'concat:build',
     'express:prod',
   ]);

@@ -53,8 +53,15 @@ app.use('/api/v1', router);
 
 
 app.get('/', function (req, res){
+  var rootPath = '';
+  if (process.env.NODE_ENV === 'production') {
+    rootPath = path.join(__dirname, '..', 'dist', 'public')
+  } else {
+    rootPath = path.join(__dirname, '..', 'client');
+  }
+
   var options = {
-    root: path.join(__dirname, '..', 'client'),
+    root: rootPath,
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),
