@@ -2,16 +2,16 @@ angular.module('brevesApp', ['ngRoute']);
 
 function RouteConfig ($routeProvider) {
   $routeProvider
-    .when('/home', {
+    .when('/', {
       templateUrl: 'app/components/home/homeView.html',
       controller: 'HomeCtrl'
     })
-    .when('/suggestions', {
+    .when('/suggestion', {
       templateUrl: 'app/components/suggestion/suggestionView.html',
       controller: 'SuggestionCtrl'
     })
 
-    .otherwise('/home');
+    .otherwise('/');
 }
 
 angular.module('brevesApp').config(RouteConfig);
