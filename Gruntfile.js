@@ -77,6 +77,7 @@ module.exports = function(grunt) {
           banner : '\'use strict\';\n\n',
           process : function (src, filepath){
             return '/* '+filepath+' */\n(function(){\n\n'+src+'\n\n})();';
+            // return '/* '+filepath+' */\n'+src+'\n\n';
           }
         },
         src: [

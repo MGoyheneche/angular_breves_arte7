@@ -1,5 +1,4 @@
-function suggestionController($scope, $location)
-{
+function suggestionController ($scope, $location) {
     // $scope.isActive = function (viewLocation) {
     //     return viewLocation === $location.path();
     // };
