@@ -1,7 +1,7 @@
 
 function brevesMailController($scope, Movies) {
-  Movies.success(function(data){
-    $scope.movies = data;
+  Movies.success(function(movies){
+    $scope.movies = movies;
   });
 }
 
