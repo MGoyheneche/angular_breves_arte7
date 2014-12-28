@@ -1,20 +1,31 @@
 var express = require('express'),
-    path    = require('path'),
-    mcapi   = require('mailchimp-api'),
-    app     = express(),
-    router  = express.Router();
+    path = require('path'),
+    mcapi = require('mailchimp-api'),
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose');
+
+var app = express();
+var router = express.Router();
+
+var mc = new mcapi.Mailchimp(process.env.MAILCHIMP_API_KEY);
+
+var Suggestions = require('./models/suggestionModel');
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
 
 var port = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '..', 'public')));
+  // var db_id = 'breves_arte7',
+  //     db_pw = 'breves_arte7';
+  // mongoose.connect('mongodb://' + db_id + ':' + db_pw + '@ds027521.mongolab.com:27521/breves_arte7');
 } else {
   app.use(express.static(path.join(__dirname, '..', '.tmp')));
-  // app.use('/bower_components', express.static(path.join(__dirname, '..', 'client', 'bower_components')));
   app.use(express.static(path.join(__dirname, '..', 'client')));
+  mongoose.connect('mongodb://localhost/breves_arte7'); // connect to our database
 }
-
-var mc = new mcapi.Mailchimp(process.env.MAILCHIMP_API_KEY);
 
 
 router.get('/lists', function (req, res) {
@@ -22,6 +33,8 @@ router.get('/lists', function (req, res) {
     res.send(data);
   });
 });
+
+// var api_v1 = require('./api/v1');
 
 router.get('/lists/:id', function (req, res) {
   mc.lists.list({filters:{list_id: req.params.id}}, function(listData) {
@@ -49,7 +62,7 @@ router.get('/today_movies', function (req, res) {
 });
 
 
-app.use('/api/v1', router);
+app.use('/api/v1', require('./api/v1'));
 
 
 app.get('/', function (req, res){
