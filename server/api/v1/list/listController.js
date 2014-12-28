@@ -6,11 +6,11 @@ exports.index = function (req, res) {
   mc.lists.list({}, function(data) {
     res.send(data);
   });
-}
+};
 
 exports.show = function (req, res){
   mc.lists.list({filters:{list_id: req.params.id}}, function(listData) {
     if (listData.total === 1)
       res.send(listData.data[0]);
   });
-}
+};
