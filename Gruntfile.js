@@ -11,26 +11,6 @@ module.exports = function(grunt) {
       tmp: '.tmp'
     },
 
-    // sass
-    // sass: {
-    //   dev: {
-    //     options: {
-    //       style: 'expanded'
-    //     },
-    //     files: {
-    //       '.tmp/assets/styles/main.css': 'client/styles/main.scss'
-    //     }
-    //   },
-    //   build: {
-    //     options: {
-    //       style: 'compressed'
-    //     },
-    //     files: {
-    //       '<%= project.dist %>/public/assets/styles/main.css': '<%= project.client %>/styles/main.scss'
-    //     }
-    //   }
-    // },
-
     less: {
       options: {
         paths: [
@@ -39,7 +19,7 @@ module.exports = function(grunt) {
           '<%= project.client %>/assets/styles'
         ]
       },
-      server: {
+      dev: {
         files: {
           '<%= project.tmp %>/assets/styles/main.css' : '<%= project.client %>/styles/main.less'
         }
@@ -204,7 +184,7 @@ module.exports = function(grunt) {
   grunt.registerTask( 'default', [
     'clean:dev',
     'clean:build',
-    'less',
+    'less:dev',
     'autoprefixer',
     'concat:dev',
     'express:dev',
