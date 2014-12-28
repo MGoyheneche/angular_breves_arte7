@@ -1,8 +1,21 @@
 <h1>Breves mail directive</h1>
-{{movies}}
 <ul>
   <li ng-repeat="movie in movies">
-    {{movie}}
+    <div class="thumbnail">
+      <img src="{{movie.snippet.thumbnails.high.url}}"
+           alt="{{movie.snippet.title}}"/>
+    </div>
+    <div class="content">
+      <h2>
+        {{movie.snippet.title}}
+        <small> · {{movie.contentDetails.duration | iso8601Period }}</small>
+      </h2>
+      <div class="description">
+        {{movie.snippet.description | limitTo: 300}} ...
+      </div>
+      <a href="https://www.youtube.com/watch?v={{movie.id}}"
+         class="btn btn-default"></a>
+    </div>
   </li>
   <br>
   <br>
