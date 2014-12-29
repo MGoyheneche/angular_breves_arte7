@@ -9,19 +9,19 @@
   </div>
 </div>
 <div class="container">
-  <div class="row">
+  <div class="row" ng-controller="CreateSuggestionCtrl">
     <div class="col-lg-8">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Proposer une suggestion</h3>
+          <h3 class="panel-title">Proposer une suggestion {{plop}} <a href="" ng-c="createeSuggestion()">click</a></h3>
         </div>
         <div class="panel-body">
-          <form action="#">
+          <form name="createSuggestionForm" ng-submit="createSuggestion()" novalidate>
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
-                  <label for="idea">Votre idée</label>
-                  <input type="text" class="form-control" id="idea" placeholder="J'aimerais ...">
+                  <label for="idea">Votre idée de suggestion</label>
+                  <input type="text" class="form-control" id="idea" ng-model="suggestion.title" placeholder="J'aimerais ...">
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="col-sm-12">
                   <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" class="form-control"></textarea>
+                    <textarea name="description" id="description" class="form-control" ng-model="suggestion.description"></textarea>
                   </div>
                 </div>
               </div>
@@ -38,7 +38,7 @@
                 <div class="col-sm-12">
                   <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="votre@email.com">
+                    <input type="email" class="form-control" id="email" ng-model="suggestion.email" placeholder="votre@email.com">
                   </div>
                 </div>
               </div>
@@ -46,13 +46,13 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="lastname">Nom</label>
-                    <input type="text" class="form-control" id="lastname" placeholder="ex : Doe">
+                    <input type="text" class="form-control" id="lastname" ng-model="suggestion.lastname" placeholder="ex : Doe">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="firstname">Prénom</label>
-                    <input type="text" class="form-control" id="firstname" placeholder="ex : Doe">
+                    <input type="text" class="form-control" id="firstname" ng-model="suggestion.firstname" placeholder="ex : Doe">
                   </div>
                 </div>
               </div>

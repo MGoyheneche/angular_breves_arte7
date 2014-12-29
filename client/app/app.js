@@ -1,4 +1,4 @@
-angular.module('brevesApp', ['ngRoute']);
+angular.module('brevesApp', ['ngRoute', 'ngResource']);
 
 function RouteConfig ($routeProvider) {
   $routeProvider
@@ -8,7 +8,7 @@ function RouteConfig ($routeProvider) {
     })
     .when('/suggestion', {
       templateUrl: 'app/components/suggestion/suggestionView.html',
-      controller: 'SuggestionCtrl'
+      // controller: 'SuggestionCtrl'
     })
 
     .otherwise('/');
