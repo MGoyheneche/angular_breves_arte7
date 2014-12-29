@@ -33,6 +33,7 @@ exports.create = function (req, res) {
 
 exports.update = function (req, res) {
   Suggestion.findById(req.params.id, function(err, suggestion) {
+    console.log(suggestion);
     if (err)
       res.send(err);
 

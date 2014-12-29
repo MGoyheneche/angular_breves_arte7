@@ -9,14 +9,14 @@
   </div>
 </div>
 <div class="container">
-  <div class="row" ng-controller="CreateSuggestionCtrl">
+  <div class="row">
     <div class="col-lg-8">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Proposer une suggestion {{plop}} <a href="" ng-c="createeSuggestion()">click</a></h3>
+          <h3 class="panel-title">Proposer une suggestion</h3>
         </div>
         <div class="panel-body">
-          <form name="createSuggestionForm" ng-submit="createSuggestion()" novalidate>
+          <form name="createSuggestionForm" ng-controller="CreateSuggestionCtrl" ng-submit="createSuggestion()" novalidate>
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
@@ -71,28 +71,28 @@
       <div class="page-header">
         <h2>Liste des suggestions</h2>
       </div>
-      <div class="idea row">
-        <div class="col-sm-2">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">votes</h3>
-            </div>
-            <div class="panel-body">
-              <p class="text-center lead">23</p>
-              <a href="#" class="btn btn-default">Voter</a>
+      <div class="idea" ng-controller="ShowSuggestionsCtrl">
+        <div class="row" ng-repeat="suggestion in suggestions">
+          <div class="col-sm-2">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">votes</h3>
+              </div>
+              <div class="panel-body">
+                <p class="text-center lead">{{suggestion.voteCount}}</p>
+                <a href="" class="btn btn-default" ng-click="voteForSuggestion($index)">Voter</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-10">
+          <div class="col-sm-10">
 
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Suggestion title</h3>
-            </div>
-            <div class="panel-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa rem dicta necessitatibus, at numquam error eius consectetur fugiat odit ipsum obcaecati explicabo ipsam, aspernatur hic quo sequi eaque delectus recusandae?
-              </p>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{suggestion.title}}</h3>
+              </div>
+              <div class="panel-body">
+                <p>{{suggestion.description}}</p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,15 +1,3 @@
-// function suggestionController ($scope, Suggestions) {
-//   $scope.suggestions = Suggestions.query();
-//   $scope.suggestion = new Suggestions();
-
-//   // $scope.createSuggestion = function (suggestion) {
-//     // var Suggestions = $resource('api/v1/suggestions/:id');
-//     var suggestion = new Suggestions($scope.suggestion);
-//     // suggestion.$save();
-//   // }
-
-// }
-
 function createSuggestionController ($scope, $resource, Suggestions) {
   $scope.createSuggestion = function () {
     console.log($scope.suggestion);
@@ -18,16 +6,23 @@ function createSuggestionController ($scope, $resource, Suggestions) {
   };
 };
 
-// function showSuggestionsController ($scope, Suggestions) {
-//   $scope.suggestions = Suggestions.query();
+function showSuggestionsController ($scope, Suggestions) {
+  $scope.suggestions = Suggestions.query();
 
-//   // $scope.voteForSuggestion = function (suggestionId) {
-//     // var Suggestions = $resource('api/v1/suggestions/:id');
-//     var suggestion = new Suggestions($scope.suggestion);
-//     // suggestion.$save();
-//   // }
+  $scope.voteForSuggestion = function (index) {
+    console.log(index);
+    $scope.suggestions[index].voteCount++;
+    // var sug = $scope.suggestions[index];
+    var suggestion = new Suggestions($scope.suggestions[index]);
+    suggestion.$update( function(data){
+      console.log('success, got data: ', data);
+    }, function(err){
+      alert('request failed');
+    });
+  };
 
-// }
+}
 
-angular.module('brevesApp').controller('CreateSuggestionCtrl', createSuggestionController);
-  // .controller('ShowSuggestionsCtrl', showSuggestionsController);
+angular.module('brevesApp')
+  .controller('CreateSuggestionCtrl', createSuggestionController)
+  .controller('ShowSuggestionsCtrl', showSuggestionsController);
