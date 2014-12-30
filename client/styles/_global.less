@@ -1,3 +1,7 @@
+html {
+  background: @grey-seashell-solid;
+}
+
 .line-separator {
   width: 4em;
   background: @color-border-default;
@@ -10,4 +14,33 @@
   .line-separator;
   background: @color-primary;
   margin: @spacer-2 auto @spacer-4;
+}
+
+.panel {
+  background: @white;
+  border-radius: @corner-radius;
+  .box-shadow();
+  .border();
+}
+
+.panel-heading {
+  padding: @spacer-1 @spacer-2;
+  background: @grey-alabaster;
+  border-bottom: 1px solid @color-border-default;
+  border-radius: @corner-radius @corner-radius 0 0;
+}
+
+.panel-title {
+  font-weight: @font-medium;
+}
+
+.panel-body {
+  padding: @spacer-1 @spacer-2;
+}
+
+.panel-footer {
+  padding: @spacer-1 @spacer-2;
+  background: @grey-alabaster;
+  border-radius: 0 0 @corner-radius @corner-radius;
+  border-top: 1px solid @color-border-default;
 }

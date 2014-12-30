@@ -20,6 +20,10 @@ module.exports = function(grunt) {
         ]
       },
       dev: {
+        options: {
+          sourceMap: true,
+          sourceMapFilename: 'main.map'
+        },
         files: {
           '<%= project.tmp %>/assets/styles/main.css' : '<%= project.client %>/styles/main.less'
         }
