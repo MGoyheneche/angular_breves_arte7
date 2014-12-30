@@ -1,20 +1,23 @@
-<h1>Breves mail directive</h1>
-<ul>
-  <li ng-repeat="movie in movies">
-    <div class="thumbnail">
+<div class="newsletter-header">
+  <div class="newsletter-logotype">Brèves arte+7 <small>ßeta</small></div>
+  <div class="newsletter-baseline">Ajoutées aujourd'hui sur arte+7</div>
+</div>
+<ul class="movies">
+  <li class="movie" ng-repeat="movie in movies">
+    <div class="newsletter-movie-thumbnail">
       <img src="{{movie.snippet.thumbnails.high.url}}"
            alt="{{movie.snippet.title}}"/>
     </div>
-    <div class="content">
-      <h2>
+    <div class="newsletter-movie-content">
+      <div class="newsletter-movie-title">
         {{movie.snippet.title}}
-        <small> · {{movie.contentDetails.duration | iso8601Period }}</small>
-      </h2>
-      <div class="description">
+        <small class="newsletter-movie-duration"> · {{movie.contentDetails.duration | iso8601Period }}</small >
+      </div>
+      <div class="newsletter-movie-description">
         {{movie.snippet.description | limitTo: 300}} ...
       </div>
       <a href="https://www.youtube.com/watch?v={{movie.id}}"
-         class="btn btn-default">Regarder la vidéo</a>
+         class="btn newsletter-movie-btn">Regarder la vidéo</a>
     </div>
   </li>
   <br>

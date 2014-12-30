@@ -1,0 +1,25 @@
+.box-shadow(@x: 0px, @y: 1px, @blur: 3px, @color: rgba(0, 0, 0, 0.07)) {
+  box-shadow: @arguments;
+}
+
+.border(@size: 1px, @type: solid,  @color: @color-border-default) {
+  border: @arguments;
+}
+
+.circle(@diameter) {
+  border-radius: @diameter/2;
+  width: @diameter;
+  height: @diameter;
+}
+
+.browser-window-button(@color) {
+  .circle(12px);
+  background: @color;
+  .border(@color: darken(@color, 10%));
+  display: inline-block;
+  margin-right: 2px; // TODO: remove this magic number :D
+}
+
+.separator(@size: 1px, @type: solid,  @color: @color-border-default) {
+  border-bottom: @arguments;
+}

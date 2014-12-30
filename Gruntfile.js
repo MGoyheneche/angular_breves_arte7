@@ -52,8 +52,8 @@ module.exports = function(grunt) {
         livereload: true,
       },
       less: {
-        files: ['<%= project.client %>/assets/styles/**/*.less'],
-        tasks: ['less', 'autoprefixer']
+        files: ['<%= project.client %>/styles/**/*.less'],
+        tasks: ['less:dev', 'autoprefixer']
       },
       script: {
         files: ['client/app/**/*.js'],
@@ -63,8 +63,8 @@ module.exports = function(grunt) {
         files:  [ 'server/server.js',
                   'client/app/**/*.js',
                   'client/**/*.html',
-                  '.tmp/styles/**/*.scss' ],
-        tasks: ['express:dev'],
+                  '.tmp/assets/styles/main.css' ],
+        tasks: ['wait', 'express:dev'],
         options: {
           spawn: false // without this option specified express won't be reloaded
         }
@@ -111,9 +111,10 @@ module.exports = function(grunt) {
         // Override defaults here
       },
       dev: {
+        tasks: ['wait'],
         options: {
           script: 'server/server.js'
-        }
+        },
       },
       prod: {
         options: {
@@ -169,6 +170,18 @@ module.exports = function(grunt) {
       }
     },
 
+  });
+
+  // Used for delaying livereload until after server has restarted
+  grunt.registerTask('wait', function () {
+    grunt.log.ok('Waiting for server reload...');
+
+    var done = this.async();
+
+    setTimeout(function () {
+      grunt.log.writeln('Done waiting!');
+      done();
+    }, 1500);
   });
 
   // Load plugins that provides tasks.

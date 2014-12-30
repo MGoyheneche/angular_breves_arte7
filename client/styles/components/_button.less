@@ -1,0 +1,40 @@
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: @font-medium;
+  color: @color-btn-primary-text;
+  background: #fff;
+  border-radius: @corner-radius;
+}
+
+.btn + .btn {
+  margin: @spacer-1;
+}
+
+.btn-layout {
+}
+
+.btn-primary {
+  .btn-layout;
+  color: @white;
+  .border(@color: darken(@color-primary, 10%));
+  border-radius: @corner-radius;
+  background-image: linear-gradient(-1deg, rgba(0, 0, 0, 0.00) 2%, rgba(0,0,0,0.20) 100%);
+  background: @color-primary;
+  .box-shadow(@color: rgba(0, 0, 0, 0.20));
+}
+
+.btn-default {
+  font-weight: @font-regular;
+  .btn-layout;
+  color: @color-btn-default-text;
+  .box-shadow();
+  .border();
+}

@@ -1,0 +1,32 @@
+.browser {
+  .column(12);
+  background: @white;
+  border-radius: @corner-radius;
+  .box-shadow();
+  .border();
+}
+
+.menu-bar {
+  width: 100%;
+  padding: 5px 10px;
+  background: @grey-alabaster;
+  border-bottom: 1px solid @color-border-default;
+}
+
+.close {
+  .browser-window-button(@red);
+}
+
+.reduce {
+  .browser-window-button(@yellow);
+}
+
+.maximize {
+  .browser-window-button(@green  );
+}
+
+.browser-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: @spacer-3;
+}

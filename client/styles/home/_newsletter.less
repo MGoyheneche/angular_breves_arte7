@@ -1,0 +1,49 @@
+.newsletter-logotype {
+  font-size: 2em;
+  line-height: 1.1;
+  font-weight: @font-bold;
+  color: @color-primary;
+}
+
+small {
+  font-weight: @font-regular;
+  font-size: 0.6em;
+  color: lighten(@color-text, 30%);
+}
+
+.newsletter-header {
+  padding: @spacer-1 0 @spacer-2;
+  border-bottom: 1px solid @color-primary;
+}
+
+.movies {
+  margin-top: @spacer-4;
+}
+
+.movie {
+  .separator();
+}
+
+.movie + .movie {
+  margin: @spacer-5 0 0;
+}
+
+.newsletter-movie-thumbnail img {
+  border-radius: @corner-radius;
+  margin: @spacer-2 0 0;
+}
+
+.newsletter-movie-title {
+  color: @color-title;
+  font-weight: @font-bold;
+  font-size: 1.6em;
+  line-height: 1em;
+  padding: @spacer-1 0;
+}
+
+.newsletter-movie-btn {
+  color: @color-primary;
+  .border(@color: @color-primary);
+  border-radius: 40px;
+  margin: @spacer-3 0 @spacer-5;
+}

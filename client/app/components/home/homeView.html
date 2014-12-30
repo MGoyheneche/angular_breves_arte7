@@ -1,138 +1,173 @@
+<div id="home">
+  <header class="presentation">
+    <div class="container">
+      <div class="wrapper">
+        <div class="catch">
+          <a href="#/" class="logotype">
+            <img src="/assets/images/shared/logotype_ba+7.svg" alt="Brèves arte+7">
+          </a>
+          <h1>Ne manquez plus aucune vidéo ajoutée sur le <strong>replay d'arte</strong>.</h1>
+          <div class="ctas">
+            <a href="#/" class="btn btn-primary">Découvrir</a>
+            <a href="#/" class="btn btn-default">S'abonner</a>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="browser">
+          <div class="menu-bar">
+            <div class="close"></div>
+            <div class="reduce"></div>
+            <div class="maximize"></div>
+          </div>
+          <div class="browser-content">
+            <breves-mail></breves-mail>
+          </div>
+        </div>
+      </div>
 
-<div class="jumbotron">
-  <div class="container">
-    <h1>Ne manquez plus aucune vidéo ajoutée sur le replay d'arte.</h1>
-    <a href="#" class="btn-lg btn-primary">Découvrir</a>
-    <a href="#" class="btn-lg btn-default">S'abonner</a>
-    <breves-mail></breves-mail>
-  </div>
+
+    </div>
+  </header>
+  <!-- {{list.stats.member_count}} -->
+  <section id="features">
+    <div class="container">
+      <div id="inbox" class="wrapper">
+        <div class="feature">
+          <div class="feature-heading">
+            <h2 class="feature-title"><span class="feature-id">.1</span>Directement dans votre boite de réception.</h2>
+          </div>
+          <div class="feature-illustration"><img src="/assets/images/home/feature_mail.svg" alt="Tous les soirs dans votre boite de réception"></div>
+          <div class="feature-description">
+            <p class="lead">Recevez, chaque jour, les dernières vidéos ajoutées sur le compte youtube arte+7.</p>
+            <a href="#" class="btn btn-default">Je m'abonne</a>
+          </div>
+        </div>
+      </div>
+      <div id="schedule" class="wrapper">
+        <div class="feature">
+          <div class="feature-heading">
+            <h2 class="feature-title"><span class="feature-id">.2</span> Au gouter ou au souper, vous choisissez.</h2>
+          </div>
+          <div class="feature-illustration"><img src="/assets/images/home/feature_clock.svg" alt="Choisissez l'heure que vous voulez"></div>
+          <div class="feature-description">
+            <p class="lead">Vous pouvez choisir l’heure à laquelle vous recevrez chaque jour la quotidienne « Brève arte +7 ».</p>
+            <a href="#" class="btn btn-default">Voter pour cette fonctionnalité</a>
+          </div>
+        </div>
+      </div>
+      <div id="limited" class="wrapper">
+        <div class="feature">
+          <div class="feature-heading">
+            <h2 class="feature-title"><span class="feature-id">.3</span> Mais les places sont limitées…</h2>
+          </div>
+          <div class="feature-illustration"><img src="/assets/images/home/feature_counter.svg" alt="Le compteur affiche 922 places restantes"></div>
+          <div class="feature-description">
+            <p class="lead">Brève arte +7 est un projet gratuit et open source réalisé dans le but d’aider à la diffusion des brillants contenus disponible d’arte. Vous pouvez soutenir financierement ce projet et permettre d’augmenter le nombre de places disponibles.</p>
+            <a href="#" class="btn btn-default">Soutenir Brèves arte+7</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscribe">
+    <div class="container">
+      <div class="wrapper">
+        <div class="col-md-6 col-md-offset-3">
+          <header class="text-center">
+            <h2>Essayez, vous allez aimer.</h2>
+            <p class="lead">Brèves arte+7 est une newsletter complètement gratuite. N’hésitez pas à l’essayer. Vous pourrez toujours vous désabonner. Et ce, à tout moment.</p>
+          </header>
+          <div class="panel panel-primary">
+            <div class="panel-body">
+              <form action="#">
+                <div class="wrapper">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email" placeholder="votre@email.com">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wrapper">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="lastname">Nom</label>
+                      <input type="text" class="form-control" id="lastname" placeholder="ex : Doe">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="firstname">Prénom</label>
+                      <input type="text" class="form-control" id="firstname" placeholder="ex : Doe">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wrapper">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <input type="submit" class="form-control btn btn-primary" id="subscribe" value="Je m'abonne">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vote">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <header class="text-center">
+            <h2>Votez pour les fonctionnalités dont vous avez besoin.</h2>
+            <p class="lead">L'application Brèves arte+7 est un work-in progress. N'hésitez pas à <a href="#">proposer une fonctionalité</a> ou a <a href="#">en développer une</a>. Brèves arte+7 est open source.</p>
+          </header>
+        </div>
+        <div class="col-md-4 col-md-offset-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="row">
+                  <div class="col-sm-6">
+                    <h3 class="panel-title">Brèves hebdomadaires</h3>
+                  </div>
+                  <div class="col-sm-6">
+                    <a href="#" class="btn btn-default pull-right">Voir les résultats</a>
+                  </div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p>
+                Seriez vous interessé par un email hebdomadaire listant la sélection de vidéo de la semaine. <u>Cette sélection serait faite par arte ?</u>
+              </p>
+              <a href="#" class="btn">Desciption détaillée</a>
+
+            </div>
+            <div class="panel-footer">
+              <div class="row">
+                <div class="col-sm-6">
+                  <a href="#" class="btn btn-success btn-block">Oui, ça m’interesse.</a>
+                </div>
+                <div class="col-sm-6">
+                  <a href="#" class="btn btn-danger btn-block">Non, sans façon.</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container">
+      <p class="text-muted">Ce site n'est pas affiilié à arte.</p>
+    </div>
+  </section>
 </div>
-{{list.stats.member_count}}
-<section id="features">
-  <div class="container">
-    <div id="inbox" class="row">
-      <div class="col-md-5"><img src="" alt="Tous les soirs dans votre boite de réception"></div>
-      <div class="col-md-7">
-        <h2>Directement dans votre boite de réception.</h2>
-        <p class="lead">Recevez, chaque jour, les dernières vidéos ajoutées sur le compte youtube arte+7.</p>
-        <a href="#" class="btn">Je m'abonne</a>
-      </div>
-    </div>
-    <div id="schedule" class="row">
-      <div class="col-md-5"><img src="" alt="Choisissez l'heure que vous voulez"></div>
-      <div class="col-md-7">
-        <h2>Au gouter ou au souper, vous choisissez.</h2>
-        <p class="lead">Vous pouvez choisir l’heure à laquelle vous recevrez chaque jour la quotidienne « Brève arte +7 ».</p>
-        <a href="#" class="btn">Voter pour cette fonctionnalité</a>
-      </div>
-    </div>
-    <div id="limited" class="row">
-      <div class="col-md-5"><img src="" alt="Le compteur affiche 922 places restantes"></div>
-      <div class="col-md-7">
-        <h2>Mais les places sont limitées…</h2>
-        <p class="lead">Brève arte +7 est un projet gratuit et open source réalisé dans le but d’aider à la diffusion des brillants contenus disponible d’arte. Vous pouvez soutenir financierement ce projet et permettre d’augmenter le nombre de places disponibles.</p>
-        <a href="#" class="btn">Soutenir Brèves arte+7</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="subscribe">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <header class="text-center">
-          <h2>Essayez, vous allez aimer.</h2>
-          <p class="lead">Brèves arte+7 est une newsletter complètement gratuite. N’hésitez pas à l’essayer. Vous pourrez toujours vous désabonner. Et ce, à tout moment.</p>
-        </header>
-        <div class="panel panel-primary">
-          <div class="panel-body">
-            <form action="#">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="votre@email.com">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="lastname">Nom</label>
-                    <input type="text" class="form-control" id="lastname" placeholder="ex : Doe">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="firstname">Prénom</label>
-                    <input type="text" class="form-control" id="firstname" placeholder="ex : Doe">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <input type="submit" class="form-control btn btn-primary" id="subscribe" value="Je m'abonne">
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="vote">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <header class="text-center">
-          <h2>Votez pour les fonctionnalités dont vous avez besoin.</h2>
-          <p class="lead">L'application Brèves arte+7 est un work-in progress. N'hésitez pas à <a href="#">proposer une fonctionalité</a> ou a <a href="#">en développer une</a>. Brèves arte+7 est open source.</p>
-        </header>
-      </div>
-      <div class="col-md-4 col-md-offset-4">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="row">
-                <div class="col-sm-6">
-                  <h3 class="panel-title">Brèves hebdomadaires</h3>
-                </div>
-                <div class="col-sm-6">
-                  <a href="#" class="btn btn-default pull-right">Voir les résultats</a>
-                </div>
-            </div>
-          </div>
-          <div class="panel-body">
-            <p>
-              Seriez vous interessé par un email hebdomadaire listant la sélection de vidéo de la semaine. <u>Cette sélection serait faite par arte ?</u>
-            </p>
-            <a href="#" class="btn">Desciption détaillée</a>
-
-          </div>
-          <div class="panel-footer">
-            <div class="row">
-              <div class="col-sm-6">
-                <a href="#" class="btn btn-success btn-block">Oui, ça m’interesse.</a>
-              </div>
-              <div class="col-sm-6">
-                <a href="#" class="btn btn-danger btn-block">Non, sans façon.</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="footer">
-  <div class="container">
-    <p class="text-muted">Ce site n'est pas affiilié à arte.</p>
-  </div>
-</section>
