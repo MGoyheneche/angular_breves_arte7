@@ -1,25 +1,32 @@
 #features {
   background: @color-background-body;
-  .box-shadow();
-  padding: @spacer-12 0;
-  position: absolute;
-  margin-top: -75em;
+  .box-shadow(@y: -1px);
+  border-top: 1px solid @grey-mercury;
+  .section-padding;
+  margin-top: -76em;
+  width: 100%;
 
   .wrapper + .wrapper {
-    margin-top: @spacer-12;
+    margin-top: @spacer-8 * 2;
+  }
+
+  .btn {
+    .btn-full-width;
   }
 }
 
 .feature-title {
-  font-weight: @font-medium;
-  font-size: 1.2em;
+  font-weight: @font-regular;
+  font-size: 1.3em;
   color: @color-title;
+  .column(11);
   line-height: 25px;
 }
 
 .feature-id {
   font-weight: @font-light;
   padding-right: @spacer-1;
+  .column(1);
   color: lighten(@color-text, 30%);
 }
 
@@ -29,8 +36,10 @@
 
 .feature-illustration {
   width: 70%;
-  max-width: 480px;
-  margin: @spacer-6 auto;
+  max-width: 160px;
+  margin: @spacer-2 auto;
 }
 
-
+.feature-description {
+  .column(12);
+}

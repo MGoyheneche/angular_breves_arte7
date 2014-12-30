@@ -1,17 +1,18 @@
 // Default
+// * {-webkit-font-smoothing: antialiased;}
+
 body {
   font: 200 1em/1.42857143 @default-font-stack;
   color: @color-text;
 }
 
-
 h1, .h1 {
-  font-size: 1.4em/1.2;
-  color: @color-title;
+
 }
 
 h2, .h2 {
-
+  font-size: 1.4em/1.2;
+  color: @color-title;
 }
 
 h2, .h2 {
@@ -30,11 +31,25 @@ h5, .h5 {
 
 }
 
-
 strong {
   font-weight: @font-medium;
 }
 
 .text-center {
   text-align: center;
+}
+
+.lead {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.95em;
+  padding: 1.5em 0 2em;
+}
+
+small {
+  font-weight: @font-regular;
+  font-size: 0.6em;
+  color: lighten(@color-text, 30%);
 }

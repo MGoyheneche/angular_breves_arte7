@@ -64,9 +64,9 @@ module.exports = function(grunt) {
                   'client/app/**/*.js',
                   'client/**/*.html',
                   '.tmp/assets/styles/main.css' ],
-        tasks: ['wait', 'express:dev'],
+        // tasks: ['wait'],
         options: {
-          spawn: false // without this option specified express won't be reloaded
+          // spawn: false // without this option specified express won't be reloaded
         }
       }
     },
