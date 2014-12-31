@@ -2,6 +2,8 @@ function createSuggestionController ($scope, $http, Suggestions) {
 
   $scope.suggestions = Suggestions.query();
 
+  console.log($scope.suggestions);
+
   $scope.createSuggestion = function () {
     // check if email is registered in a list
     $http
@@ -25,10 +27,13 @@ function createSuggestionController ($scope, $http, Suggestions) {
   };
 
   $scope.voteForSuggestion = function (index) {
+    $scope.suggestions[index].voting.push($scope.suggestions[index].email);
+
+    var suggestion = new Suggestions($scope.suggestions[index]);
+    suggestion.voteCount++;
+
     // TODO: check if email is registered in a list
     // TODO: check if email is not already voting
-    $scope.suggestions[index].voting.push($scope.suggestions[index].email);
-    var suggestion = new Suggestions($scope.suggestions[index]);
     suggestion.$update( function(data){
       $scope.suggestions[index].voteCount++;
     }, function(err){
