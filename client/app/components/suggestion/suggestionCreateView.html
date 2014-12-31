@@ -1,0 +1,50 @@
+<form name="createSuggestionForm" ng-submit="createSuggestion()" novalidate>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="idea">Votre idée de suggestion</label>
+        <input type="text" class="form-control" id="idea" ng-model="suggestion.title" placeholder="J'aimerais ...">
+      </div>
+    </div>
+  </div>
+  <div class="additional-informations">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea name="description" id="description" class="form-control" ng-model="suggestion.description"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="creator-email">Email address</label>
+          <input type="email" class="form-control" id="creator-email" ng-model="suggestion.creatorEmail" placeholder="votre@email.com">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="lastname">Nom</label>
+          <input type="text" class="form-control" id="lastname" ng-model="suggestion.lastname" placeholder="ex : Doe">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="firstname">Prénom</label>
+          <input type="text" class="form-control" id="firstname" ng-model="suggestion.firstname" placeholder="ex : Doe">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Poster cette idée">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
