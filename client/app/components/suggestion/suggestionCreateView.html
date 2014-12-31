@@ -1,18 +1,19 @@
-<form name="createSuggestionForm" ng-submit="createSuggestion()" novalidate>
+<form name="createSuggestionForm" ng-submit="createSuggestion()"  ng-blur="focus=false;" novalidate>
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
         <label for="idea">Votre idée de suggestion</label>
-        <input type="text" class="form-control" id="idea" ng-model="suggestion.title" placeholder="J'aimerais ...">
+        <!-- <input type="text" class="form-control" id="idea" ng-model="suggestion.title" placeholder="J'aimerais ..."> -->
+        <input type="text" class="form-control" id="idea" ng-model="createSuggestion.title" placeholder="J'aimerais ..." ng-focus="focus=true">
       </div>
     </div>
   </div>
-  <div class="additional-informations">
+  <div ng-show="focus" ng-animate>
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="description">Description</label>
-          <textarea name="description" id="description" class="form-control" ng-model="suggestion.description"></textarea>
+          <textarea name="description" id="description" class="form-control" ng-model="createSuggestion.description"></textarea>
         </div>
       </div>
     </div>
@@ -20,11 +21,15 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="creator-email">Email address</label>
-          <input type="email" class="form-control" id="creator-email" ng-model="suggestion.creatorEmail" placeholder="votre@email.com">
+          <input type="email" class="form-control" id="creator-email"
+          ng-model="createSuggestion.creatorEmail" placeholder="votre@email.com">
+     {{creatorEmail}}
+
         </div>
       </div>
     </div>
-    <div class="row">
+     {{suggestion.creatorEmail}}
+<!--     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
           <label for="lastname">Nom</label>
@@ -37,7 +42,7 @@
           <input type="text" class="form-control" id="firstname" ng-model="suggestion.firstname" placeholder="ex : Doe">
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="row">
       <div class="col-sm-12">

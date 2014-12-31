@@ -101,7 +101,7 @@
               <hr class="section-title-underline">
               <p class="lead">Brèves arte+7 est une newsletter complètement gratuite. N’hésitez pas à l’essayer. Vous pourrez toujours vous désabonner. Et ce, à tout moment.</p>
             </header>
-            <form action="#">
+            <form name="subscribeForm" ng-submit="subscribeToList()" novalidate>
               <div class="wrapper">
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -111,7 +111,7 @@
                 </div>
               </div>
 
-              <div class="wrapper">
+<!--               <div class="wrapper">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="lastname">Nom</label>
@@ -125,7 +125,7 @@
                   </div>
                 </div>
               </div>
-
+ -->
               <div class="wrapper">
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -185,11 +185,11 @@
         </div>
       </div>
     </section>
-    <section id="footer">
-      <div class="container">
-        <p class="text-muted">Ce site n'est pas affiilié à arte.</p>
-      </div>
-    </section>
   </div>
-
 </div>
+
+<section class="footer">
+  <div class="container">
+    <p class="text-muted">Ce site n'est pas affiilié à arte.</p>
+  </div>
+</section>

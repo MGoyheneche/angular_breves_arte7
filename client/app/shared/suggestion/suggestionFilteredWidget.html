@@ -1,6 +1,8 @@
 <div class="wrapper">
-  <div ng-show="createSuggestion.title === undefined" class="suggestion" ng-repeat="suggestion in suggestions">
-    <h1>Normal</h1>
+
+  <div class="suggestion" ng-repeat="suggestion in suggestions |
+                                     filter: filterFunction |
+                                     orderBy: 'title' ">
     <div class="panel-heading">
       <div class="wrapper">
         <div class="panel-title">

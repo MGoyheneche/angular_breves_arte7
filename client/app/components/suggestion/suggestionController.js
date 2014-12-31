@@ -1,29 +1,37 @@
-function createSuggestionController ($scope, $http, Suggestions) {
+function SuggestionController ($scope, $http, Suggestions) {
+  $scope.showAdditionalCreationFields = false;
 
   $scope.suggestions = Suggestions.query();
 
+  $scope.filterFunction = function(element) {
+    var re = new RegExp($scope.createSuggestion.title, 'g');
+    return element.title.match(re) ? true : false;
+  };
+
   $scope.createSuggestion = function () {
     // check if email is registered in a list
+    console.log($scope.createSuggestion);
     $http
-      .get('api/v1/helper/lists-for-email/' + $scope.suggestion.creatorEmail)
+      .get('api/v1/helper/lists-for-email/' + $scope.createSuggestion.creatorEmail)
       .success(function(data, status, headers, config) {
         if (data.status === "error") {
           console.log("error in the mail")
         } else {
-          $scope.suggestion.voting = [];
-          $scope.suggestion.voting.push($scope.suggestion.creatorEmail);
-          var suggestion = new Suggestions($scope.suggestion);
-          console.log(suggestion);
-          suggestion
-          suggestion.$save();
-          $scope.suggestions.push(suggestion);
-          $scope.suggestion = {};
+          $scope.createSuggestion.voting = [];
+          $scope.createSuggestion.voting.push($scope.createSuggestion.creatorEmail);
+          var newSuggestion = new Suggestions($scope.createSuggestion);
+          console.log(newSuggestion);
+          newSuggestion
+          newSuggestion.$save();
+          $scope.suggestions.push(newSuggestion);
+          $scope.createSuggestion = {};
         }
       })
       .error(function(data, status, headers, config) {
         console.log("Api error")
       });
   };
+
 
   $scope.voteForSuggestion = function (index) {
     if (!$scope.suggestions[index].votingEmail) {
@@ -57,10 +65,9 @@ function createSuggestionController ($scope, $http, Suggestions) {
         console.log("Api error")
       });
   };
-
 }
 
-angular.module('brevesApp').controller('SuggestionCtrl', createSuggestionController)
+angular.module('brevesApp').controller('SuggestionCtrl', SuggestionController)
 
 
 

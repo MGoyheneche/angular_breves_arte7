@@ -19,12 +19,14 @@
 
         <div class="panel-body">
           <ng-include src="'app/components/suggestion/suggestionCreateView.html'"></ng-include>
+
         </div>
       </div>
       <div class="page-header">
         <h2>Liste des suggestions</h2>
       </div>
-          <ng-include src="'app/shared/suggestion/suggestionWidget.html'"></ng-include>
+          <!-- <ng-include src="'app/shared/suggestion/suggestionWidget.html'"></ng-include> -->
+          <ng-include src="'app/shared/suggestion/suggestionFilteredWidget.html'"></ng-include>
       <!-- <div class="suggestion">
         <div class="row" ng-repeat="suggestion in suggestions">
           <div class="col-sm-2">
