@@ -115,7 +115,7 @@ module.exports = function(grunt) {
         // Override defaults here
       },
       dev: {
-        tasks: ['wait'],
+        // tasks: ['wait'],
         options: {
           script: 'server/server.js'
         },
