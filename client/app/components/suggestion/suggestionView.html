@@ -16,7 +16,6 @@
           <h3 class="panel-title">Proposer une suggestion</h3>
         </div>
         <div class="panel-body">
-          <!-- <form name="createSuggestionForm" ng-controller="CreateSuggestionCtrl" ng-submit="createSuggestion()" novalidate> -->
           <form name="createSuggestionForm" ng-submit="createSuggestion()" novalidate>
             <div class="row">
               <div class="col-sm-12">
@@ -72,7 +71,6 @@
       <div class="page-header">
         <h2>Liste des suggestions</h2>
       </div>
-      <!-- <div class="idea" ng-controller="ShowSuggestionsCtrl"> -->
       <div class="idea">
         <div class="row" ng-repeat="suggestion in suggestions">
           <div class="col-sm-2">
@@ -82,20 +80,27 @@
               </div>
               <div class="panel-body">
                 <p class="text-center lead">{{suggestion.voteCount}}</p>
-                <div class="row">
-                  <div class="col-sm-12">
+                <form name="createSuggestionForm" ng-submit="voteForSuggestion($index)" novalidate>
+                  <div class="row">
+                    <div class="col-sm-12">
                       <div class="form-group">
-                        <label for="description">email</label>
-                        <input type="email" ng-model="suggestion.email" placeholder="votre@email.com">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" ng-model="suggestion.email" placeholder="votre@email.com">
                       </div>
+                    </div>
                   </div>
-                </div>
-                <a href="" class="btn btn-default" ng-click="voteForSuggestion($index)">Voter</a>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Poster cette idée">
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
           <div class="col-sm-10">
-
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">{{suggestion.title}}</h3>
