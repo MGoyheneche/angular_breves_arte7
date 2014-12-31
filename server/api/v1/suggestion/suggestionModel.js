@@ -9,8 +9,9 @@ var SuggestionSchema = new Schema({
   creatorEmail: String,
   firstname: String,
   lastname: String,
-  voteCount: { type: Number, default: 0 },
-  createdAt: { type: Date, default: Date.now }
+  voteCount: { type: Number, default: 1 },
+  createdAt: { type: Date, default: Date.now },
+  voting: Array
 });
 
 module.exports = mongoose.model('Suggestion', SuggestionSchema);

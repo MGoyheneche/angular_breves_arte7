@@ -24,48 +24,26 @@ exports.show = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  // Check if email owner receive newsletter
-  // console.log(req.body.creatorEmail);
-  // mc.helper.listsForEmail({email: {email: req.body.creatorEmail}}, function(data) {
   var suggestion = new Suggestion(req.body);
   suggestion.save( function (err) {
     if (err)
       res.status(400).json(err);
 
-    console.log("ok");
     res.json(suggestion);
   });
-  // }, function(err){
-  //     console.log("pas ok");
-  //     res.status(400).json(err);
-  // });
-
-  // var suggestion = new Suggestion(req.body);
-  // suggestion.save( function (err) {
-  //   if (err)
-  //     res.status(400).json(err);
-
-  //   res.json(suggestion);
-  // });
 };
 
 exports.update = function (req, res) {
-  // Check if email owner receive newsletter
-  // mc.helper.listsForEmail({email: {email: req.body.email}}, function(data) {
   Suggestion.findById(req.params.id, function(err, suggestion) {
-    console.log(suggestion);
     if (err)
       res.send(err);
-
     suggestion = _.extend(suggestion, req.body)
     suggestion.save(function(err) {
       if (err)
         res.send(err);
-
       res.json({ message: 'Suggestion updated!', suggestion: suggestion });
     });
   });
-
 };
 
 exports.delete = function (req, res) {
