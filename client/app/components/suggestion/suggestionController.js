@@ -2,8 +2,6 @@ function createSuggestionController ($scope, $http, Suggestions) {
 
   $scope.suggestions = Suggestions.query();
 
-  console.log($scope.suggestions);
-
   $scope.createSuggestion = function () {
     // check if email is registered in a list
     $http
@@ -19,6 +17,7 @@ function createSuggestionController ($scope, $http, Suggestions) {
           suggestion
           suggestion.$save();
           $scope.suggestions.push(suggestion);
+          $scope.suggestion = {};
         }
       })
       .error(function(data, status, headers, config) {
@@ -27,43 +26,41 @@ function createSuggestionController ($scope, $http, Suggestions) {
   };
 
   $scope.voteForSuggestion = function (index) {
-    $scope.suggestions[index].voting.push($scope.suggestions[index].email);
+    if (!$scope.suggestions[index].votingEmail) {
+      console.log("email invalide");
+      return;
+    }
 
-    var suggestion = new Suggestions($scope.suggestions[index]);
-    suggestion.voteCount++;
+    if ($scope.suggestions[index].voting.indexOf($scope.suggestions[index].votingEmail) !== -1) {
+      console.log("Vous avez deja voté");
+      return;
+    }
 
-    // TODO: check if email is registered in a list
-    // TODO: check if email is not already voting
-    suggestion.$update( function(data){
-      $scope.suggestions[index].voteCount++;
-    }, function(err){
-      alert('request failed');
-    });
+    // Check if email is registered in a list
+    $http
+      .get('api/v1/helper/lists-for-email/' + $scope.suggestions[index].votingEmail)
+      .success(function(data, status, headers, config) {
+        if (data.status === "error") {
+          console.log("not a member")
+        } else {
+          $scope.suggestions[index].voting.push($scope.suggestions[index].votingEmail);
+          var suggestion = new Suggestions($scope.suggestions[index]);
+          suggestion.voteCount++;
+          suggestion.$update(function(data){
+            $scope.suggestions[index].voteCount++;
+          }, function(err){
+            console.log('update request failed');
+          });
+        }
+      })
+      .error(function(data, status, headers, config) {
+        console.log("Api error")
+      });
   };
 
 }
 
 angular.module('brevesApp').controller('SuggestionCtrl', createSuggestionController)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
