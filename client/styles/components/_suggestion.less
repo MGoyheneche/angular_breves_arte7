@@ -1,6 +1,21 @@
 .suggestion {
-  .column(12);
   .panel();
+  .column(12);
+
+  @media only screen and (min-width : @screen-sm-min) {
+    .column(6);
+    .push(3);
+  }
+}
+
+.suggestion-catch {
+  .text-center;
+  .column(12);
+
+  @media only screen and (min-width : @screen-sm-min) {
+    .column(8);
+    .push(2);
+  }
 }
 
 .suggestion-title {

@@ -1,24 +1,30 @@
-.box-shadow(@x: 0px, @y: 1px, @blur: 3px, @color: rgba(0, 0, 0, 0.07)) {
+.box-shadow (@x: 0px, @y: 1px, @blur: 3px, @color: rgba(0, 0, 0, 0.07)) {
   box-shadow: @arguments;
 }
 
-.border(@size: 1px, @type: solid,  @color: @color-border-default) {
+.border (@size: 1px, @type: solid,  @color: @color-border-default) {
   border: @arguments;
 }
 
-.circle(@diameter) {
+.circle (@diameter) {
   border-radius: @diameter/2;
   width: @diameter;
   height: @diameter;
 }
 
-.browser-window-button(@color) {
+.browser-window-button (@color) {
   .circle(12px);
   background: @color;
   .border(@color: darken(@color, 10%));
   display: inline-block;
 }
 
-.separator(@size: 1px, @type: solid,  @color: @color-border-default) {
+.separator (@size: 1px, @type: solid,  @color: @color-border-default) {
   border-bottom: @arguments;
+}
+
+.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @color: rgba(0, 0, 0, 0.10)) {
+  -webkit-box-shadow: inset @x @y @blur @spread @color;
+  -moz-box-shadow: inset @x @y @blur @spread @color;
+  box-shadow: inset @x @y @blur @spread @color;
 }

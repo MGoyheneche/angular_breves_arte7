@@ -1,6 +1,11 @@
 .browser {
   .column(12);
   .panel;
+
+  @media only screen and (min-width : @screen-sm-min) {
+    .column(10);
+    .push(1);
+  }
 }
 
 .menu-bar {
@@ -22,7 +27,7 @@
 }
 
 .browser-content {
-  max-width: 600px;
+  max-width: 680px;
   margin: 0 auto;
   padding: @spacer-3;
 }
