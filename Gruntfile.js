@@ -70,7 +70,7 @@ module.exports = function(grunt) {
                   '.tmp/assets/styles/main.css' ],
         // tasks: ['wait'],
         options: {
-          // spawn: false // without this option specified express won't be reloaded
+          spawn: false // without this option specified express won't be reloaded
         }
       }
     },

@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var SuggestionSchema = new Schema({
   title: String,
   description: String,
-  email: String,
+  creatorEmail: String,
   firstname: String,
   lastname: String,
   voteCount: { type: Number, default: 0 },

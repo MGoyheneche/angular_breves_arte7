@@ -4,6 +4,7 @@ var express = require('express');
 var suggestions = require('./suggestion/suggestionController');
 var lists = require('./list/listController');
 var movies = require('./movie/movieController');
+var helper = require('./helper/helperController');
 
 var router = express.Router();
 
@@ -22,5 +23,7 @@ router.get('/lists/:id', lists.show);
 router.get('/movies', movies.static);
 // router.get('/movies/:date', lists.show); TODO
 
+// Helper
+router.get('/helper/lists-for-email/:email', helper.listsForEmail);
 
 module.exports = router;

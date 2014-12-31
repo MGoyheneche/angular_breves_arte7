@@ -62,7 +62,7 @@ app.get('/*', function (req, res){
   //     console.log('Sent:', fileName);
   //   }
   // });
-    res.sendFile(fileName, options);
+    res.sendFile('index.html', options);
 });
 
 
