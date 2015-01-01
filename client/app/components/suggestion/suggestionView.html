@@ -9,52 +9,32 @@
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-lg-8">
+  <div class="wrapper">
+    <div class="suggestion-form-container">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Proposer une suggestion</h3>
         </div>
-                <!-- <ng-include src="'app/components/suggestion/suggestionVoteView.html'"></ng-include> -->
-
         <div class="panel-body">
-          <ng-include src="'app/components/suggestion/suggestionCreateView.html'"></ng-include>
+          <ng-include src="'app/components/suggestion/suggestionCreateView.html'">
+          </ng-include>
 
         </div>
       </div>
-      <div class="page-header">
-        <h2>Liste des suggestions</h2>
+    </div>
+
+    <div class="suggestions-container">
+      <h2>Liste des suggestions</h2>
+      <div class="form-group">
+        <label for="suggestion_filter">Chercher dans les suggestions</label>
+        <input type="text"
+               class="form-control"
+               name="suggestion_filter"
+               ng-model="suggestion_filter"
+               placeholder="Je ne souhaiterais voir que ...">
       </div>
-          <!-- <ng-include src="'app/shared/suggestion/suggestionWidget.html'"></ng-include> -->
-          <ng-include src="'app/shared/suggestion/suggestionFilteredWidget.html'"></ng-include>
-      <!-- <div class="suggestion">
-        <div class="row" ng-repeat="suggestion in suggestions">
-          <div class="col-sm-2">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">votes</h3>
-              </div>
-              <div class="panel-body">
-                <p class="text-center lead">{{suggestion.voteCount}}</p>
-                <ng-include src="'app/components/suggestion/suggestionVoteView.html'"></ng-include>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-10">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">{{suggestion.title}}</h3>
-              </div>
-              <div class="panel-body">
-                <p>{{suggestion.description}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="col-lg-4">
-      <h2>Sidebar for display usefull content</h2>
+      <ng-include src="'app/shared/suggestion/suggestionFilteredWidget.html'">
+      </ng-include>
     </div>
   </div>
 </div>

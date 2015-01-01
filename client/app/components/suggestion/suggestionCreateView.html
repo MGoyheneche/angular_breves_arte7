@@ -1,11 +1,21 @@
-<form name="createSuggestionForm" ng-submit="createSuggestion()"  ng-blur="focus=false;" novalidate>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="form-group">
-        <label for="idea">Votre idée de suggestion</label>
-        <!-- <input type="text" class="form-control" id="idea" ng-model="suggestion.title" placeholder="J'aimerais ..."> -->
-        <input type="text" class="form-control" id="idea" ng-model="createSuggestion.title" placeholder="J'aimerais ..." ng-focus="focus=true">
-      </div>
+<form name="form.createSuggestionForm" ng-submit="createSuggestion()" novalidate>
+  <div class="form-group">
+    <label for="title">Votre idée de suggestion
+    {{form.createSuggestionForm.$submitted}}</label>
+    <!-- <input type="text" class="form-control" id="title" ng-model="suggestion.title" placeholder="J'aimerais ..."> -->
+    <input  type="text"
+            name="title"
+            id="title"
+            class="form-control"
+            ng-model="createSuggestion.title"
+            ng-focus="focus=true"
+            ng-minlength="1"
+            placeholder="J'aimerais ..."
+            required >
+    <div ng-show="form.createSuggestionForm.title.$invalid
+                  && form.createSuggestionForm.title.$touched"
+          class="form-help-block">
+    Le titre de votre suggestion ne peut pas etre vide.
     </div>
   </div>
   <div ng-show="focus" ng-animate>
@@ -13,17 +23,43 @@
       <div class="col-sm-12">
         <div class="form-group">
           <label for="description">Description</label>
-          <textarea name="description" id="description" class="form-control" ng-model="createSuggestion.description"></textarea>
+          <textarea name="description"
+                    id="description"
+                    class="form-control"
+                    ng-model="createSuggestion.description"
+                    ng-minlength="1"
+                    required ></textarea>
+          <div ng-show="form.createSuggestionForm.description.$invalid
+                        && form.createSuggestionForm.description.$touched"
+               class="form-help-block">
+            La description de votre suggestion ne peut pas etre vide.
+          </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label for="creator-email">Email address</label>
-          <input type="email" class="form-control" id="creator-email"
-          ng-model="createSuggestion.creatorEmail" placeholder="votre@email.com">
-     {{creatorEmail}}
+          <label for="email">Email address</label>
+          <input type="email"
+                 class="form-control"
+                 name="email"
+                 id="email"
+                 ng-model="createSuggestion.creatorEmail"
+                 ng-minlength="1"
+                 placeholder="votre@email.com"
+                 ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }"
+                 required >
+          <div ng-show="form.createSuggestionForm.email.$invalid
+                        && form.createSuggestionForm.email.$touched"
+               class="form-help-block">
+            L'email que vous avez entré est invalide
+          </div>
+          <div ng-show="form.createSuggestionForm.email.$error.required
+                        && form.createSuggestionForm.email.$touched"
+               class="form-help-block">
+            Vous devez saisir une adresse Email
+          </div>
 
         </div>
       </div>
@@ -47,7 +83,10 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <input type="submit" class="btn btn-primary" value="Poster cette idée">
+          <input type="submit"
+                 class="btn btn-primary"
+                 value="Poster cette idée"
+                 ng-disabled="form.createSuggestionForm.$invalid">
         </div>
       </div>
     </div>

@@ -1,7 +1,4 @@
 function subscribeFormController ($scope, $http, $rootScope) {
-  // $scope.subscriber = [];
-
-        // $scope.modalAlert({type: "success", message: "Votre demande à bien été prise en compte, un email vous à été envoyé."});
 
   $scope.subscribeToList = function () {
     console.log($scope.subscriber.email);
@@ -21,6 +18,7 @@ function subscribeFormController ($scope, $http, $rootScope) {
         console.log(data);
       });
   }
+
 }
 
 angular.module('brevesApp').controller('SubscribeFormController', subscribeFormController)
