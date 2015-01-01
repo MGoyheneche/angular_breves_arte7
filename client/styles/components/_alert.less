@@ -1,0 +1,31 @@
+.alert-container {
+  position: fixed;
+  width: 100%;
+  .text-center;
+  margin-top: @spacer-4;
+  z-index: 10;
+}
+
+.alert-message {
+  display: none;
+  max-width: 280px;
+  margin: 0 auto;
+  border: 1px solid;
+  border-radius: @corner-radius;
+  padding: @spacer-2;
+  font-weight: 400;
+}
+
+.success {
+  display: inline-block;
+  background: lighten(@color-success, 40%);
+  color: darken(@color-success, 20%);
+  .box-shadow(@color-success);
+}
+
+.error {
+  display: inline-block;
+  background: lighten(@color-error, 25%);
+  color: darken(@color-error, 20%);
+  .box-shadow(@color-error);
+}

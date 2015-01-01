@@ -11,7 +11,8 @@
 
     &:focus {
       background: @white;
-      border: 1px solid @color-primary;
+      border: 1px solid @color-input-border;
+      // .box-shadow(@x: 0, @y: 0, @blur: 4px, @color: @color-primary);
     }
 
   .inner-shadow(@y: 1px);
@@ -66,7 +67,22 @@ label {
   font-size: 0.9em;
 }
 
+.has-error {
+  background: lighten(@color-error, 90%);
+  border: 1px solid @color-error;
+  .box-shadow(@x: 0, @y: 0, @blur: 4px, @color: @color-error);
+}
+
+.form-help-block {
+  color: @color-error;
+  font-weight: @font-bold;
+  font-size: 0.9em;
+}
 
 .form-group {
   margin-bottom: @spacer-2;
 }
+
+// input.ng-invalid {
+//   .error;
+// }

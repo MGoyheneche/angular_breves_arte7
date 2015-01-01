@@ -1,19 +1,25 @@
-function subscribeFormController ($scope, $http) {
-  $scope.subscriber = [];
+function subscribeFormController ($scope, $http, $rootScope) {
+  // $scope.subscriber = [];
+
+        // $scope.modalAlert({type: "success", message: "Votre demande à bien été prise en compte, un email vous à été envoyé."});
 
   $scope.subscribeToList = function () {
-    // console.log($scope.subscriber);
-    $http.post('/api/v1/lists/subscribe', {id: 'b0e318dd95', email: $scope.subscriber.email}).
-    success(function(data, status, headers, config) {
-      // this callback will be called asynchronously
-      // when the response is available
-      console.log(data);
-    }).
-    error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-      console.log(data);
-    });
+    console.log($scope.subscriber.email);
+
+    $http.post('/api/v1/lists/subscribe', {id: 'b0e318dd95', email: $scope.subscriber.email}).success(function(data, status, headers, config) {
+        console.log("Tout va bien");
+
+        $scope.modalAlert({
+          type: "success",
+          message: "Votre demande à bien été prise en compte, un email vous à été envoyé."
+        });
+      }).error(function(data, status, headers, config) {
+        $scope.modalAlert({
+          type: "error",
+          message: data
+        });
+        console.log(data);
+      });
   }
 }
 

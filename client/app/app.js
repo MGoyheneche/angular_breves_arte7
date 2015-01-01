@@ -15,3 +15,15 @@ function RouteConfig ($routeProvider) {
 }
 
 angular.module('brevesApp').config(RouteConfig);
+
+
+// TODO: moove into a Service, a directive ?
+angular.module('brevesApp').run(function($rootScope, $timeout) {
+  $rootScope.modalAlert = function(alert){
+    console.log(alert);
+    $rootScope.alert = alert;
+    $timeout(function() {
+      $rootScope.alert = {};
+    }, alert.duration || 5000);
+  }
+});
