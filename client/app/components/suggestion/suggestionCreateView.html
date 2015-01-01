@@ -3,15 +3,15 @@
     <label for="title">Votre idée de suggestion
     {{form.createSuggestionForm.$submitted}}</label>
     <!-- <input type="text" class="form-control" id="title" ng-model="suggestion.title" placeholder="J'aimerais ..."> -->
-    <input  type="text"
-            name="title"
-            id="title"
-            class="form-control"
-            ng-model="createSuggestion.title"
-            ng-focus="focus=true"
-            ng-minlength="1"
-            placeholder="J'aimerais ..."
-            required >
+    <input type="text"
+           name="title"
+           id="title"
+           class="form-control"
+           ng-model="createSuggestion.title"
+           ng-focus="focus=true"
+           ng-minlength="1"
+           placeholder="J'aimerais ..."
+           required >
     <div ng-show="form.createSuggestionForm.title.$invalid
                   && form.createSuggestionForm.title.$touched"
           class="form-help-block">
