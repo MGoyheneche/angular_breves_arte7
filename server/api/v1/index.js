@@ -18,6 +18,7 @@ router.delete('/suggestions/:id', suggestions.delete);
 // Lists
 router.get('/lists', lists.index);
 router.get('/lists/:id', lists.show);
+router.post('/lists/subscribe/', lists.subscribe);
 
 // Movies
 router.get('/movies', movies.static);

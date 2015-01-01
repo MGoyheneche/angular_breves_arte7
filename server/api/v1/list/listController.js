@@ -14,3 +14,10 @@ exports.show = function (req, res){
       res.send(listData.data[0]);
   });
 };
+
+exports.subscribe = function (req, res){
+    console.log(req.body);
+  mc.lists.subscribe({id: process.env.MAILCHIMP_LIST_ID_BREVES_ARTE_PLUS_7_DAILY, email: {email: req.body.email}}, function(data) {
+    console.log(data);
+  });
+};
