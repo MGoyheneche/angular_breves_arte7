@@ -27,3 +27,19 @@ angular.module('brevesApp').run(function($rootScope, $timeout) {
     }, alert.duration || 5000);
   }
 });
+
+
+// $(function(){
+//   console.log($('a#hamburger-icon'));
+//   $('a#hamburger-icon').on('click', function(e){
+//     e.preventDefault();
+//   console.log("helooooo")
+
+//     console.log($('navigation-primary'));
+//     $('navigation-primary').toggleClass('retracted');
+//   });
+
+//   $( "a" ).on( "click", function() {
+//     alert( $( this ).text() );
+//   });
+// });

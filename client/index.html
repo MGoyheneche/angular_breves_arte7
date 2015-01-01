@@ -14,9 +14,9 @@
     </span>
   </div>
 
-  <navigation-primary class="nav-primary"></navigation-primary>
+  <navigation-primary></navigation-primary>
 
-  <div ng-view></div>
+  <div ng-view class="view-wrapper"></div>
 
   <section class="footer">
     <div class="container">
@@ -29,5 +29,18 @@
   <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.js#$"></script>
   <script type="text/javascript" src="app/combined-scripts.js"></script>
+
+  <script>
+    console.log($('a#hamburger-icon'));
+    $('a#hamburger-icon').on('click', function(e){
+    console.log("helooooo")
+      e.preventDefault();
+
+      console.log($('navigation-primary'));
+      $('navigation-primary').toggleClass('retracted');
+    });
+
+
+  </script>
 </body>
 </html>
