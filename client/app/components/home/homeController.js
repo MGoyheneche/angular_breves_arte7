@@ -1,9 +1,26 @@
-function HomeController($scope, List) {
+// function HomeController($scope, List) {
+//   $scope.jobs = "jobs";
+//   List.success(function(list){
+//     $scope.list = list;
+//   });
+//   $scope.mandrill_email_limit = 4000; // Monthly limit of free email
+// }
+
+// angular.module('brevesApp').controller('HomeCtrl', HomeController);
+
+
+// function HomeController($scope, List) {
+//   $scope.jobs = "jobs";
+//   List.success(function(list){
+//     $scope.list = list;
+//   });
+//   $scope.mandrill_email_limit = 4000; // Monthly limit of free email
+// }
+
+angular.module('brevesApp').controller('HomeCtrl', ['$scope', 'List', function ($scope, List) {
   $scope.jobs = "jobs";
   List.success(function(list){
     $scope.list = list;
   });
   $scope.mandrill_email_limit = 4000; // Monthly limit of free email
-}
-
-angular.module('brevesApp').controller('HomeCtrl', HomeController);
+}]);
