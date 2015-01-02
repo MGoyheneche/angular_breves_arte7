@@ -181,6 +181,14 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin: {
+      build: {
+        files: {
+          '<%= project.dist %>/public/assets/styles/main.css': '<%= project.dist %>/public/assets/styles/main.css'
+        }
+      }
+    }
+
   });
 
   // Used for delaying livereload until after server has restarted
@@ -205,13 +213,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default task(s).
   grunt.registerTask( 'default', [
     'clean:dev',
     'clean:build',
     'less:dev',
-    // 'autoprefixer',
     'concat:dev',
     'express:dev',
     'open:dev',
@@ -222,13 +230,11 @@ module.exports = function(grunt) {
     'clean:dev',
     'clean:build',
     'less:build',
+    'cssmin:build',
     'autoprefixer:build',
     'concat:build',
     'uglify',
     'copy',
-    // 'less:build',
-    // 'concat:build',
-    // 'express:prod',
   ]);
 
   // - dist/
