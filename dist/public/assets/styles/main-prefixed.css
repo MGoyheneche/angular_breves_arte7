@@ -503,6 +503,7 @@ input[type="submit"]:disabled {
   background: #f95e5e;
   border: 1px solid #f72d2d;
   display: inline-block;
+  margin-right: 4px;
 }
 .reduce {
   border-radius: 6px;
@@ -511,6 +512,7 @@ input[type="submit"]:disabled {
   background: #fcbe50;
   border: 1px solid #fbab1e;
   display: inline-block;
+  margin-right: 4px;
 }
 .maximize {
   border-radius: 6px;
@@ -519,6 +521,7 @@ input[type="submit"]:disabled {
   background: #37cd59;
   border: 1px solid #2aa746;
   display: inline-block;
+  margin-right: 4px;
 }
 .browser-content {
   max-width: 680px;

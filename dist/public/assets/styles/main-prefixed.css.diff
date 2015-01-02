@@ -70,7 +70,7 @@ Index: dist/public/assets/styles/main-prefixed.css
  }
  .btn-full-width {
    width: 100%;
-@@ -709,18 +708,22 @@
+@@ -712,18 +711,22 @@
    }
  }
  .invisible {
