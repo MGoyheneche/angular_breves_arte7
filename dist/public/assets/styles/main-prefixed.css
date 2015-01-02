@@ -344,6 +344,7 @@ label {
 }
 input[type="submit"]:disabled {
   opacity: 0.4;
+  cursor: default;
 }
 .btn {
   display: inline-block;
@@ -766,4 +767,9 @@ input[type="submit"]:disabled {
 }
 .subscribe-unsubscribe {
   padding: 6em 0;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: #f95e5e;
 }

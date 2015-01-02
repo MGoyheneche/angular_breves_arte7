@@ -21,8 +21,8 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          sourceMap: true,
-          sourceMapFilename: 'main.map'
+          // sourceMap: true,
+          // sourceMapFilename: 'main.map'
         },
         files: {
           '<%= project.tmp %>/assets/styles/main.css' : '<%= project.client %>/styles/main.less'
@@ -203,7 +203,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '<%= project.dist %>/public',
           src: '**/*.html',
-          // dest: 'dist/'
+          dest: '<%= project.dist %>/public'
         }]
       }
     },
@@ -229,7 +229,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '<%= project.dist %>/public',
         src: ['**/*'],
-        // dest: 'assets/'
+        dest: '<%= project.dist %>/public'
       }
     }
 
@@ -270,7 +270,7 @@ module.exports = function(grunt) {
     'less:dev',
     'concat:dev',
     'express:dev',
-    'open:dev',
+    // 'open:dev',
     'watch'
   ]);
 
@@ -286,7 +286,7 @@ module.exports = function(grunt) {
     'useminPrepare:build',
     'usemin:build',
     'htmlmin:build',
-    'compress:build',
+    // 'compress:build',
   ]);
 
   // - dist/

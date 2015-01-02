@@ -4,7 +4,7 @@ var express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    methodOverride = require('method-override'),
+    // methodOverride = require('method-override'),
     compress = require('compression');
 
 var app = express();
@@ -21,9 +21,9 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
-app.use(methodOverride());
+// app.use(methodOverride());
 
-app.use(compress());
+// app.use(compress());
 
 var port = process.env.PORT || 3000;
 
@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/api/v1', require('./api/v1'));
 
-app.get('/', function (req, res){
+app.get('/*', function (req, res){
   var rootPath = '';
   if (process.env.NODE_ENV === 'production') {
     rootPath = path.join(__dirname, '..', 'public')
@@ -55,6 +55,7 @@ app.get('/', function (req, res){
         'x-sent': true
     }
   };
+
 
   var fileName = 'index.html';
   // res.sendFile(fileName, options, function (err) {

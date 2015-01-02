@@ -47,7 +47,14 @@
 // }
 
 angular.module('brevesApp').
-  controller('SubscribeFormController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+  controller('SubscribeFormController', ['$scope', '$http', '$rootScope', 'List', function ($scope, $http, $rootScope, List) {
+
+  List.success(function(list){
+    $scope.list = list.data[0];
+    console.log($scope.list.stats.member_count);
+    $scope.remainingPlace = Math.floor($scope.mandrillEmailLimit - $scope.list.stats.member_count);
+  });
+
     $scope.subscribeToList = function () {
       console.log($scope.subscriber.email);
 

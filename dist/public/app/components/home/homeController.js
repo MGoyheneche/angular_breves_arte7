@@ -18,12 +18,17 @@
 // }
 
 angular.module('brevesApp').controller('HomeCtrl', ['$scope', '$timeout', '$location', 'List', function ($scope, $timeout, $location, List) {
-  $scope.jobs = "jobs";
+  $scope.mandrillEmailLimit = 4000 / 31; // Monthly limit of free email
+
   List.success(function(list){
-    $scope.list = list[0];
+    // console.log(list.data[0]);
+    $scope.list = list.data[0];
+    console.log($scope.list.stats.member_count);
+    $scope.remainingPlace = Math.floor($scope.mandrillEmailLimit - $scope.list.stats.member_count);
+
   });
 
-  $scope.mandrill_email_limit = 4000 / 31; // Monthly limit of free email
+
 
   $scope.hasHash = function () {
     return $location.hash().length !== 0;
