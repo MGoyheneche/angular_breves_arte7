@@ -1,5 +1,8 @@
 module.exports = function(grunt) {
 
+  var mozjpeg = require('imagemin-mozjpeg');
+
+
   // Project configuration.
   grunt.initConfig({
 
@@ -245,7 +248,12 @@ module.exports = function(grunt) {
       //     'dist/img.gif': 'src/img.gif'
       //   }
       // },
-      build: {                         // Another target
+      build: {
+        options: {                       // Target options
+          optimizationLevel: 5,
+          svgoPlugins: [{ removeViewBox: false }],
+          use: [mozjpeg()]
+        },                        // Another target
         files: [{
           expand: true,                  // Enable dynamic expansion
           cwd: 'dist/',                   // Src matches are relative to this path

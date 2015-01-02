@@ -25,7 +25,8 @@
     "grunt-express-server": "^0.4.19",
     "grunt-nodemon": "^0.3.0",
     "grunt-open": "^0.2.3",
-    "grunt-usemin": "^3.0.0"
+    "grunt-usemin": "^3.0.0",
+    "imagemin-mozjpeg": "^4.0.0"
   },
   "dependencies": {
     "body-parser": "^1.10.0",
