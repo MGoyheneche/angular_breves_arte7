@@ -1,7 +1,6 @@
 <form name="form.createSuggestionForm" ng-submit="createSuggestion()" novalidate>
   <div class="form-group">
-    <label for="title">Votre idée de suggestion
-    {{form.createSuggestionForm.$submitted}}</label>
+    <label for="title">Votre idée de suggestion</label>
     <!-- <input type="text" class="form-control" id="title" ng-model="suggestion.title" placeholder="J'aimerais ..."> -->
     <input type="text"
            name="title"
@@ -15,7 +14,7 @@
     <div ng-show="form.createSuggestionForm.title.$invalid
                   && form.createSuggestionForm.title.$touched"
           class="form-help-block">
-    Le titre de votre suggestion ne peut pas etre vide.
+    Le titre de votre suggestion ne peut pas être vide.
     </div>
   </div>
   <div ng-show="focus" ng-animate>
@@ -32,7 +31,7 @@
           <div ng-show="form.createSuggestionForm.description.$invalid
                         && form.createSuggestionForm.description.$touched"
                class="form-help-block">
-            La description de votre suggestion ne peut pas etre vide.
+            La description de votre suggestion ne peut pas être vide.
           </div>
         </div>
       </div>
@@ -40,7 +39,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label for="email">Email address</label>
+          <label for="email">Adresse email</label>
           <input type="email"
                  class="form-control"
                  name="email"
@@ -53,18 +52,18 @@
           <div ng-show="form.createSuggestionForm.email.$invalid
                         && form.createSuggestionForm.email.$touched"
                class="form-help-block">
-            L'email que vous avez entré est invalide
+            L'email que vous avez entré n'est pas valide.
           </div>
           <div ng-show="form.createSuggestionForm.email.$error.required
                         && form.createSuggestionForm.email.$touched"
                class="form-help-block">
-            Vous devez saisir une adresse Email
+            Vous devez saisir une adresse email.
           </div>
 
         </div>
       </div>
     </div>
-     {{suggestion.creatorEmail}}
+     <!-- {{suggestion.creatorEmail}} -->
 <!--     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">

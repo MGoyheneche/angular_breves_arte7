@@ -22,7 +22,8 @@ angular.module('brevesApp').controller('HomeCtrl', ['$scope', '$timeout', '$loca
   List.success(function(list){
     $scope.list = list[0];
   });
-  $scope.mandrill_email_limit = 4000; // Monthly limit of free email
+
+  $scope.mandrill_email_limit = 4000 / 31; // Monthly limit of free email
 
   $scope.hasHash = function () {
     return $location.hash().length !== 0;
