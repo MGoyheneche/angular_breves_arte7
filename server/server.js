@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/api/v1', require('./api/v1'));
 
-app.get('/*', function (req, res){
+app.get('/', function (req, res){
   var rootPath = '';
   if (process.env.NODE_ENV === 'production') {
     rootPath = path.join(__dirname, '..', 'public')
