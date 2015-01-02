@@ -220,7 +220,6 @@ module.exports = function(grunt) {
       }
     },
 
-
     compress: {
       build: {
         options: {
@@ -230,6 +229,29 @@ module.exports = function(grunt) {
         cwd: '<%= project.dist %>/public',
         src: ['**/*'],
         dest: '<%= project.dist %>/public'
+      }
+    },
+
+    imagemin: {                          // Task
+      // static: {                          // Target
+      //   options: {                       // Target options
+      //     optimizationLevel: 3,
+      //     svgoPlugins: [{ removeViewBox: false }],
+      //     use: [mozjpeg()]
+      //   },
+      //   files: {                         // Dictionary of files
+      //     'dist/img.png': 'src/img.png', // 'destination': 'source'
+      //     'dist/img.jpg': 'src/img.jpg',
+      //     'dist/img.gif': 'src/img.gif'
+      //   }
+      // },
+      build: {                         // Another target
+        files: [{
+          expand: true,                  // Enable dynamic expansion
+          cwd: 'dist/',                   // Src matches are relative to this path
+          src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+          // dest: 'dist/'                  // Destination path prefix
+        }]
       }
     }
 
@@ -261,6 +283,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 
   // Default task(s).
@@ -286,6 +309,7 @@ module.exports = function(grunt) {
     'useminPrepare:build',
     'usemin:build',
     'htmlmin:build',
+    'imagemin:build',
     // 'compress:build',
   ]);
 
