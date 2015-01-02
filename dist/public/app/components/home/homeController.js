@@ -20,7 +20,7 @@
 angular.module('brevesApp').controller('HomeCtrl', ['$scope', '$timeout', '$location', 'List', function ($scope, $timeout, $location, List) {
   $scope.jobs = "jobs";
   List.success(function(list){
-    $scope.list = list;
+    $scope.list = list[0];
   });
   $scope.mandrill_email_limit = 4000; // Monthly limit of free email
 
