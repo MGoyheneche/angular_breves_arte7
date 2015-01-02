@@ -37,3 +37,17 @@
 }
 
 
+.invisible {
+  opacity: 0;
+  transform: translate3d(0px, 20px, 0px) !important;
+}
+
+#browser.invisible, #over.invisible {
+  opacity: 0;
+  transform: translate3d(0px, 300px, 0px) !important;
+}
+
+.animate {
+  transition: all 1s ease-in-out; // TODO: make mixin
+  transform: translate3d(0px, 0px, 0px);
+}

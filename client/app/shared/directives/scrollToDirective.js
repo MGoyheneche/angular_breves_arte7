@@ -1,4 +1,4 @@
-angular.module('brevesApp').directive('scrollTo', function() {
+angular.module('brevesApp').directive('scrollTo', [function() {
   return {
     restrict: 'A',
     link: function(scope, $element, attrs) {
@@ -16,4 +16,4 @@ angular.module('brevesApp').directive('scrollTo', function() {
       });
     }
   }
-});
+}]);

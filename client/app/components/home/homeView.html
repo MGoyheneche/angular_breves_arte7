@@ -2,7 +2,7 @@
   <header class="presentation">
     <div class="container">
       <div class="wrapper">
-        <div class="catch">
+        <div id="catch" ng-class="{ invisible: !hasHash()}" class="catch animate">
           <a href="#/" class="logotype">
             <img src="/assets/images/shared/logotype_ba+7.svg"
                  alt="Brèves arte+7">
@@ -12,14 +12,15 @@
             <strong>replay d'arte</strong>.
           </h1>
           <div class="ctas">
-            <!-- <a href="" ng-click="gotoAnchor('subscribe')" class="btn btn-primary">Découvrir</a> -->
-            <a href="#features" scroll-to class="btn btn-primary">Découvrir</a>
-            <a href="#subscribe" scroll-to class="btn btn-default">S'abonner</a>
+            <a href="" ng-click="gotoElement('features')" class="btn btn-primary">Découvrir</a>
+            <a href="" ng-click="gotoElement('subscribe')" class="btn btn-default">S'abonner</a>
+            <!-- <a href="#features" scroll-to class="btn btn-primary">Découvrir</a> -->
+            <!-- <a href="#subscribe" scroll-to class="btn btn-default">S'abonner</a> -->
           </div>
         </div>
       </div>
       <div class="wrapper">
-        <div class="browser">
+        <div id="browser" class="browser invisible animate">
           <div class="menu-bar">
             <div class="close"></div>
             <div class="reduce"></div>
@@ -35,7 +36,7 @@
     </div>
   </header>
   <!-- {{list.stats.member_count}} -->
-  <div class="over">
+  <div id="over" class="over invisible">
     <section id="features">
       <div class="container">
         <div id="inbox" class="feature-container">
@@ -56,7 +57,7 @@
                 <p>
                   Recevez, chaque jour, les dernières vidéos ajoutées sur le compte youtube arte+7.
                 </p>
-                <a href="#subscribe" scroll-to
+                <a href="" ng-click="gotoElement('subscribe')"
                    class="btn btn-default ">Je m'abonne</a>
               </div>
             </div>
@@ -80,7 +81,7 @@
                 <p class="lead">
                   Vous pouvez choisir l’heure à laquelle vous recevrez chaque jour la quotidienne « Brève arte +7 ».
                 </p>
-                <a href="#vote" scroll-to
+                <a href="" ng-click="gotoElement('vote')"
                    class="btn btn-default">Voter pour cette fonctionnalité</a>
               </div>
             </div>
@@ -104,7 +105,7 @@
                 <p class="lead">
                   Brève arte +7 est un projet gratuit et open source réalisé dans le but d’aider à la diffusion des brillants contenus disponible d’arte. Vous pouvez soutenir financierement ce projet et permettre d’augmenter le nombre de places disponibles.
                 </p>
-                <a href="#subscribe" scroll-to
+                <a href=""
                    class="btn btn-default disabled">Soutenir Brèves arte+7</a>
               </div>
             </div>

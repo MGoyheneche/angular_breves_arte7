@@ -1,3 +1,5 @@
+
+
 angular.module('brevesApp', ['ngRoute', 'ngResource']);
 
 function RouteConfig ($routeProvider) {
@@ -17,8 +19,9 @@ function RouteConfig ($routeProvider) {
 angular.module('brevesApp').config(RouteConfig);
 
 
+
 // TODO: moove into a Service, a directive ?
-angular.module('brevesApp').run(function($rootScope, $timeout, $location) {
+angular.module('brevesApp').run(function($rootScope, $timeout, $location, scrollToNoReload) {
   $rootScope.modalAlert = function(alert){
     console.log(alert);
     $rootScope.alert = alert;
@@ -26,6 +29,26 @@ angular.module('brevesApp').run(function($rootScope, $timeout, $location) {
       $rootScope.alert = {};
     }, alert.duration || 5000);
   };
+
+  $rootScope.gotoElement = function (eID){
+    // set the location.hash to the id of
+    // the element you wish to scroll to.
+    // $location.hash(eID);
+    console.log($location.hash().length);
+    // $location.path("/thing/").replace().reload(false);
+
+    // call $anchorScroll()
+    scrollToNoReload.scrollTo(eID);
+
+  };
+  // $rootScope.firstLoading = true;
+
+  // if ($rootScope.firstLoading) {
+
+  //   angular.element(document.querySelector( '#catch' )).addClass('invisible');
+  //   angular.element(document.querySelector( '#browser' )).addClass('invisible');
+  //   angular.element(document.querySelector( '#over' )).addClass('invisible');
+  // };
 
   // $rootScope.gotoAnchor = function(hash) {
   //   if ($location.hash() !== hash) {
@@ -42,18 +65,18 @@ angular.module('brevesApp').run(function($rootScope, $timeout, $location) {
 });
 
 
-
 // $(function(){
-//   console.log($('a#hamburger-icon'));
-//   $('a#hamburger-icon').on('click', function(e){
-//     e.preventDefault();
-//   console.log("helooooo")
+//   console.log($('div#home div.catch'));
+//   $('div#home div.catch').removeClass('invisible');
+  // $('a#hamburger-icon').on('click', function(e){
+  //   e.preventDefault();
+  // console.log("helooooo")
 
-//     console.log($('navigation-primary'));
-//     $('navigation-primary').toggleClass('retracted');
-//   });
+  //   console.log($('navigation-primary'));
+  //   $('navigation-primary').toggleClass('retracted');
+  // });
 
-//   $( "a" ).on( "click", function() {
-//     alert( $( this ).text() );
-//   });
+  // $( "a" ).on( "click", function() {
+  //   alert( $( this ).text() );
+  // });
 // });
