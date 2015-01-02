@@ -180,7 +180,7 @@ module.exports = function(grunt) {
     uglify: {
       build: {
         files: {
-          '<%= project.dist %>/public/app/combined-scripts.js': '<%= project.dist %>/public/app/combined-scripts.js'
+          '<%= project.dist %>/public/app/app.min.js': '<%= project.dist %>/public/app/combined-scripts.js'
         }
       }
     },
@@ -188,7 +188,7 @@ module.exports = function(grunt) {
     cssmin: {
       build: {
         files: {
-          '<%= project.dist %>/public/assets/styles/main.css': '<%= project.dist %>/public/assets/styles/main.css'
+          '<%= project.dist %>/public/assets/styles/main.min.css': '<%= project.dist %>/public/assets/styles/main.css'
         }
       }
     },
@@ -207,6 +207,19 @@ module.exports = function(grunt) {
         }]
       }
     },
+
+    useminPrepare: {
+      build: {
+        src: '<%= project.dist %>/public/index.html'
+      }
+    },
+
+    usemin: {
+      build: {
+        src: '<%= project.dist %>/public/index.html'
+      }
+    },
+
 
     compress: {
       build: {
@@ -247,6 +260,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-usemin');
+
 
   // Default task(s).
   grunt.registerTask( 'default', [
@@ -268,6 +283,8 @@ module.exports = function(grunt) {
     'concat:build',
     'uglify:build',
     'copy:build',
+    'useminPrepare:build',
+    'usemin:build',
     'htmlmin:build',
     'compress:build',
   ]);
