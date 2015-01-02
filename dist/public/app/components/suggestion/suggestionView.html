@@ -1,0 +1,41 @@
+<div class="suggestion-view presentation">
+  <div class="container">
+    <h1 class="h2">
+      Une idée d'amélioration ?
+    </h1>
+    <p class="lead">N'hésitez pas à nous en faire part.</p>
+    <p>Brèves arte+7 est un projet open source. Chacun peut y contribuer en proposant une idée d'amélioration.</p>
+  </div>
+</div>
+<div id="suggestions-wrap" class="suggestion-view-container">
+  <div class="container">
+    <div class="wrapper">
+      <div class="suggestion-form-container">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Proposer une suggestion</h3>
+          </div>
+          <div class="panel-body">
+            <ng-include src="'app/components/suggestion/suggestionCreateView.html'">
+            </ng-include>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="suggestions-container">
+        <h2>Liste des suggestions</h2>
+        <div class="form-group">
+          <label for="suggestion_filter">Chercher dans les suggestions</label>
+          <input type="text"
+                 class="form-control"
+                 name="suggestion_filter"
+                 ng-model="suggestion_filter"
+                 placeholder="Je ne souhaiterais voir que ...">
+        </div>
+        <ng-include src="'app/shared/suggestion/suggestionFilteredWidget.html'">
+        </ng-include>
+      </div>
+    </div>
+  </div>
+</div>
