@@ -1,0 +1,27 @@
+<div class="newsletter-header">
+  <div class="newsletter-logotype">Brèves arte+7 <small>ßeta</small></div>
+  <div class="newsletter-baseline">Ajoutées aujourd'hui sur arte+7</div>
+</div>
+<ul class="movies">
+  <li class="movie" ng-repeat="movie in movies">
+    <div class="wrapper">
+      <div class="newsletter-movie-thumbnail">
+        <img src="{{movie.snippet.thumbnails.high.url}}"
+             alt="{{movie.snippet.title}}"/>
+      </div>
+      <div class="newsletter-movie-content">
+        <div class="newsletter-movie-title">
+          {{movie.snippet.title}}
+          <small class="newsletter-movie-duration"> · {{movie.contentDetails.duration | iso8601Period }}</small >
+        </div>
+        <div class="newsletter-movie-description">
+          {{movie.snippet.description | limitTo: 300}} ...
+        </div>
+        <a href="https://www.youtube.com/watch?v={{movie.id}}"
+           class="btn newsletter-movie-btn">Regarder la vidéo</a>
+      </div>
+    </div>
+  </li>
+  <br>
+  <br>
+</ul>

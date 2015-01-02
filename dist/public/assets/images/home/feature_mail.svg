@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="192px" height="192px" viewBox="0 0 192 192" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>mail_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="70" width="192" height="128" rx="4"></rect>
+        <path id="path-3" d="M99.3045373,7.23744713 C97.4794917,6.0017392 94.5113355,6.0079499 92.6954627,7.23744713 L3.3045373,67.7625529 C1.47949174,68.9982608 0,71.7850137 0,74.0065973 L0,193.993403 C0,196.206185 1.79318122,198 3.99915357,198 L188.000846,198 C190.209518,198 192,196.214986 192,193.993403 L192,74.0065973 C192,71.7938147 190.511336,68.9920501 188.695463,67.7625529 L99.3045373,7.23744713 Z"></path>
+        <path d="M182,78.3060797 L182,14.9998606 C182,12.7907986 180.213292,11 178.001558,11 L13.998442,11 C11.7901635,11 10,12.7910548 10,14.9998606 L10,77.8060797 L10,77.8060797 L96,135.5 L95.2546875,136 L96,136 L182,78.3060797 Z" id="path-5"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-331.000000, -886.000000)">
+            <g id="Découvrir" sketch:type="MSLayerGroup" transform="translate(-47.000000, 689.000000)">
+                <g id="Directement-dans-votre" transform="translate(297.000000, 87.000000)">
+                    <g id="mail_icon" transform="translate(81.000000, 104.000000)">
+                        <mask id="mask-2" sketch:name="Rectangle 143" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Rectangle-143" stroke="#E63A10" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                        <mask id="mask-4" sketch:name="Rectangle 144" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Rectangle-144" stroke="#E63A10" fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-3"></use>
+                        <path d="M0.6,198.5 L0.6,70.5 L96,134.5 L0.6,198.5 Z" id="Triangle-2" stroke="#E63A10" fill="#FFFFFF" sketch:type="MSShapeGroup" mask="url(#mask-4)"></path>
+                        <path d="M96,199 L96,71 L191.4,135 L96,199 Z" id="Triangle-3" stroke="#E63A10" fill="#FFFFFF" sketch:type="MSShapeGroup" mask="url(#mask-4)">
+                            <g transform="translate(143.700000, 135.000000) scale(-1, 1) translate(-143.700000, -135.000000) "></g>
+                        </path>
+                        <mask id="mask-6" sketch:name="Rectangle 145" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="Rectangle-145">
+                            <use stroke="#E63A10" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-5"></use>
+                            <use stroke="none" fill="none" xlink:href="#path-5"></use>
+                        </g>
+                        <g id="header" mask="url(#mask-6)" stroke="#E63A10" sketch:type="MSShapeGroup">
+                            <g transform="translate(20.000000, 21.000000)">
+                                <rect id="Rectangle-147" x="0" y="0" width="56" height="10" rx="4"></rect>
+                                <rect id="Rectangle-148" x="2" y="14" width="46" height="1" rx="4"></rect>
+                                <rect id="Rectangle-148" x="0" y="24" width="151" height="1" rx="4"></rect>
+                            </g>
+                        </g>
+                        <g id="article" mask="url(#mask-6)" stroke="#E63A10" sketch:type="MSShapeGroup">
+                            <g transform="translate(20.000000, 57.000000)">
+                                <rect id="Rectangle-148" x="70" y="0" width="81" height="8" rx="4"></rect>
+                                <rect id="Rectangle-149" x="70" y="45" width="41" height="11" rx="4"></rect>
+                                <rect id="Rectangle-150" x="75" y="50" width="31" height="1" rx="4"></rect>
+                                <rect id="Rectangle-149" x="70" y="15" width="81" height="1" rx="4"></rect>
+                                <rect id="Rectangle-150" x="70" y="22" width="81" height="1" rx="4"></rect>
+                                <rect id="Rectangle-151" x="70" y="29" width="81" height="1" rx="4"></rect>
+                                <rect id="Rectangle-152" x="70" y="36" width="81" height="1" rx="4"></rect>
+                                <rect id="Rectangle-148" x="0" y="0" width="56" height="39" rx="4"></rect>
+                                <rect id="Rectangle-149" x="0" y="70" width="151" height="1" rx="4"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

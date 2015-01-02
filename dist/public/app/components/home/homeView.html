@@ -1,0 +1,243 @@
+<div id="home">
+  <header class="presentation">
+    <div class="container">
+      <div class="wrapper">
+        <div class="catch">
+          <a href="#/" class="logotype">
+            <img src="/assets/images/shared/logotype_ba+7.svg"
+                 alt="Brèves arte+7">
+          </a>
+          <h1 class="h2">
+            Ne manquez plus aucune vidéo ajoutée sur le
+            <strong>replay d'arte</strong>.
+          </h1>
+          <div class="ctas">
+            <!-- <a href="" ng-click="gotoAnchor('subscribe')" class="btn btn-primary">Découvrir</a> -->
+            <a href="#features" scroll-to class="btn btn-primary">Découvrir</a>
+            <a href="#subscribe" scroll-to class="btn btn-default">S'abonner</a>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="browser">
+          <div class="menu-bar">
+            <div class="close"></div>
+            <div class="reduce"></div>
+            <div class="maximize"></div>
+          </div>
+          <div class="browser-content">
+            <breves-mail></breves-mail>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </header>
+  <!-- {{list.stats.member_count}} -->
+  <div class="over">
+    <section id="features">
+      <div class="container">
+        <div id="inbox" class="feature-container">
+          <div class="feature">
+            <div class="wrapper">
+              <span class="feature-id">.1</span>
+              <div class="feature-title">
+                <h2>Directement dans votre boite de réception.</h2>
+                <hr class="line-separator">
+              </div>
+            </div>
+            <div class="wrapper">
+              <div class="feature-illustration">
+                <img src="/assets/images/home/feature_mail.svg"
+                     alt="Tous les soirs dans votre boite de réception">
+              </div>
+              <div class="feature-description">
+                <p>
+                  Recevez, chaque jour, les dernières vidéos ajoutées sur le compte youtube arte+7.
+                </p>
+                <a href="#subscribe" scroll-to
+                   class="btn btn-default ">Je m'abonne</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="schedule" class="feature-container">
+          <div class="feature">
+            <div class="wrapper">
+              <span class="feature-id">.2</span>
+              <div class="feature-title">
+                <h2>Au gouter ou au souper, vous choisissez.</h2>
+                <hr class="line-separator">
+              </div>
+            </div>
+            <div class="wrapper">
+              <div class="feature-illustration">
+                <img src="/assets/images/home/feature_clock.svg"
+                     alt="Choisissez l'heure que vous voulez">
+              </div>
+              <div class="feature-description">
+                <p class="lead">
+                  Vous pouvez choisir l’heure à laquelle vous recevrez chaque jour la quotidienne « Brève arte +7 ».
+                </p>
+                <a href="#vote" scroll-to
+                   class="btn btn-default">Voter pour cette fonctionnalité</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="limited" class="feature-container">
+          <div class="feature">
+            <div class="wrapper">
+              <span class="feature-id">.3</span>
+              <div class="feature-title">
+                <h2>Mais les places sont limitées...</h2>
+                <hr class="line-separator">
+              </div>
+            </div>
+            <div class="wrapper">
+              <div class="feature-illustration">
+                <img src="/assets/images/home/feature_counter.svg"
+                     alt="Le compteur affiche 922 places restantes">
+              </div>
+              <div class="feature-description">
+                <p class="lead">
+                  Brève arte +7 est un projet gratuit et open source réalisé dans le but d’aider à la diffusion des brillants contenus disponible d’arte. Vous pouvez soutenir financierement ce projet et permettre d’augmenter le nombre de places disponibles.
+                </p>
+                <a href="#subscribe" scroll-to
+                   class="btn btn-default disabled">Soutenir Brèves arte+7</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="subscribe">
+      <div class="container">
+        <div class="wrapper">
+          <div class="subscribe-container"
+               ng-controller="SubscribeFormController">
+            <header class="catch-secondary text-center">
+              <h2>Essayez, vous allez aimer.</h2>
+              <hr class="section-title-underline">
+              <p class="lead">
+                Brèves arte+7 est une newsletter complètement gratuite. N’hésitez pas à l’essayer. Vous pourrez toujours vous désabonner. Et ce, à tout moment.
+              </p>
+            </header>
+            <!-- <form name="subscribeForm" ng-submit="subscribeForm.$valid && subscribeToList()" novalidate> -->
+            <form name="subscribeForm" ng-submit="subscribeToList()" novalidate>
+              <div class="wrapper">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="email">Adresse email</label>
+                    <input type="email"
+                           ng-class="{'has-error': subscribeForm.email.$invalid
+                                      && subscribeForm.email.$touched}"
+                           class="form-control"
+                           id="email"
+                           name="email"
+                           placeholder="votre@email.com"
+                           ng-model="subscriber.email"
+                           data-ng-minlength="3" required>
+
+                    <div ng-show="subscribeForm.email.$invalid
+                                  && subscribeForm.email.$touched"
+                         class="form-help-block">
+                      L'email que vous avez entré est invalide
+                    </div>
+
+                    <div ng-show="subscribeForm.email.$error.required
+                                  && subscribeForm.email.$touched"
+                         class="form-help-block">
+                      Vous devez saisir une adresse Email
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+<!--               <div class="wrapper">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname">Nom</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Doe">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="John">
+                  </div>
+                </div>
+              </div>
+ -->
+              <div class="wrapper">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <input type="submit"
+                           class="btn btn-primary btn-full-width"
+                           id="subscribe-btn"
+                           value="Je m'abonne">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vote">
+      <div class="container">
+        <div class="wrapper">
+          <header class="suggestion-catch">
+            <h2>Votez pour les fonctionnalités dont vous avez besoin.</h2>
+            <hr class="section-title-underline">
+            <p class="lead">
+              L'application Brèves arte+7 est un work-in progress. N'hésitez pas à
+              <a href="#">proposer une fonctionalité</a> ou a
+              <a href="#">en développer une</a>. Brèves arte+7 est open source.
+            </p>
+          </header>
+        </div>
+        <div class="wrapper">
+          <ng-include src="'app/shared/suggestion/suggestionWidget.html'">
+          </ng-include>
+
+<!--           <div class="suggestion">
+            <div class="panel-heading">
+              <div class="wrapper">
+                <div class="panel-title">
+                  <h3 class="suggestion-title">Brèves hebdomadaires</h3>
+                </div>
+                <div class="suggestion-vote-count">
+                  <span class="suggestion-vote-count-number">
+                    32
+                  </span>
+                  <span class="suggestion-vote-count-text">
+                    votes
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p>
+                Seriez vous interessé par un email hebdomadaire listant la sélection de vidéo de la semaine. <u>Cette sélection serait faite par arte ?</u>
+              </p>
+
+            </div>
+            <div class="panel-footer">
+              <div class="wrapper">
+                <a href="#" class="suggestion-vote-for btn btn-default btn-block btn-full-width">Oui, ça m’interesse.</a>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="text-center">
+          <a href="#/suggestion"
+             class="btn btn-primary">Toutes les suggestions</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
