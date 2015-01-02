@@ -4,6 +4,7 @@ var express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
+    methodOverride = require('method-override'),
     compress = require('compression');
 
 var app = express();
@@ -20,7 +21,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
-// app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(methodOverride());
 
 app.use(compress());
 
