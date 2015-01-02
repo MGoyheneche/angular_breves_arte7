@@ -9,9 +9,10 @@ exports.index = function (req, res) {
 };
 
 exports.show = function (req, res){
-  mc.lists.list({filters:{list_id: req.params.id}}, function(listData) {
-    // if (listData.total === 1)
-      res.send(listData);
+  mc.lists.list({filters:{list_id: req.params.id}}, function(data) {
+    res.send(data)
+  }, function(error) {
+    res.send(error)
   });
 };
 
