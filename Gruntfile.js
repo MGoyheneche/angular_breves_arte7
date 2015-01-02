@@ -142,7 +142,7 @@ module.exports = function(grunt) {
 
     // copies files
     copy: {
-      dist: {
+      build: {
         files: [{
           expand: true,
           dot: true,
@@ -174,7 +174,7 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      my_target: {
+      build: {
         files: {
           '<%= project.dist %>/public/app/combined-scripts.js': '<%= project.dist %>/public/app/combined-scripts.js'
         }
@@ -187,7 +187,22 @@ module.exports = function(grunt) {
           '<%= project.dist %>/public/assets/styles/main.css': '<%= project.dist %>/public/assets/styles/main.css'
         }
       }
-    }
+    },
+
+    htmlmin: {                                     // Task
+      build: {
+        options: {                                 // Target options
+          removeComments: true,
+          collapseWhitespace: true
+        },                               // Target
+        files: [{                                  // Dictionary of files
+          expand: true,
+          cwd: '<%= project.dist %>/public',                             // Project root
+          src: '**/*.html',                        // Source
+          // dest: 'dist/'                            // Destination
+        }]
+      }
+  }
 
   });
 
@@ -214,6 +229,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   // Default task(s).
   grunt.registerTask( 'default', [
@@ -233,8 +249,9 @@ module.exports = function(grunt) {
     'cssmin:build',
     'autoprefixer:build',
     'concat:build',
-    'uglify',
-    'copy',
+    'uglify:build',
+    'copy:build',
+    'htmlmin:build',
   ]);
 
   // - dist/
