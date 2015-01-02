@@ -8,6 +8,12 @@ function RouteConfig ($routeProvider) {
       templateUrl: 'app/components/home/homeView.html',
       controller: 'HomeCtrl'
     })
+    .when('/subscribe', {
+      templateUrl: 'app/components/subscribe/subscribeView.html'
+    })
+    .when('/unsubscribe', {
+      templateUrl: 'app/components/unsubscribe/unsubscribeView.html',
+    })
     .when('/suggestion', {
       templateUrl: 'app/components/suggestion/suggestionView.html',
       controller: 'SuggestionCtrl'

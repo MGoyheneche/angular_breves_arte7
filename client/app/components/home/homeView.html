@@ -117,8 +117,7 @@
     <section id="subscribe">
       <div class="container">
         <div class="wrapper">
-          <div class="subscribe-container"
-               ng-controller="SubscribeFormController">
+          <div class="subscribe-container">
             <header class="catch-secondary text-center">
               <h2>Essayez, vous allez aimer.</h2>
               <hr class="section-title-underline">
@@ -127,62 +126,7 @@
               </p>
             </header>
             <!-- <form name="subscribeForm" ng-submit="subscribeForm.$valid && subscribeToList()" novalidate> -->
-            <form name="subscribeForm" ng-submit="subscribeToList()" novalidate>
-              <div class="wrapper">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="email">Adresse email</label>
-                    <input type="email"
-                           ng-class="{'has-error': subscribeForm.email.$invalid
-                                      && subscribeForm.email.$touched}"
-                           class="form-control"
-                           id="email"
-                           name="email"
-                           placeholder="votre@email.com"
-                           ng-model="subscriber.email"
-                           data-ng-minlength="3" required>
-
-                    <div ng-show="subscribeForm.email.$invalid
-                                  && subscribeForm.email.$touched"
-                         class="form-help-block">
-                      L'email que vous avez entré est invalide
-                    </div>
-
-                    <div ng-show="subscribeForm.email.$error.required
-                                  && subscribeForm.email.$touched"
-                         class="form-help-block">
-                      Vous devez saisir une adresse Email
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-<!--               <div class="wrapper">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="lastname">Nom</label>
-                    <input type="text" class="form-control" id="lastname" placeholder="Doe">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="firstname">Prénom</label>
-                    <input type="text" class="form-control" id="firstname" placeholder="John">
-                  </div>
-                </div>
-              </div>
- -->
-              <div class="wrapper">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <input type="submit"
-                           class="btn btn-primary btn-full-width"
-                           id="subscribe-btn"
-                           value="Je m'abonne">
-                  </div>
-                </div>
-              </div>
-            </form>
+            <ng-include src="'app/shared/lists_form/subscribeFormView.html'"></ng-include>
           </div>
         </div>
       </div>

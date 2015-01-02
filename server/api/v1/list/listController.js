@@ -24,3 +24,13 @@ exports.subscribe = function (req, res){
     res.send(error)
   });
 };
+
+exports.unsubscribe = function (req, res){
+  console.log("unsubscribe");
+  console.log(req.body);
+  mc.lists.unsubscribe({id: process.env.MAILCHIMP_LIST_ID_BREVES_ARTE_PLUS_7_DAILY, email: {email: req.body.email}}, function(data) {
+    res.send(data)
+  }, function(error) {
+    res.send(error)
+  });
+};
