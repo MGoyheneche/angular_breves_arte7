@@ -96,6 +96,10 @@ module.exports = function(grunt) {
           }
         },
         src: [
+          '<%= project.client %>/bower_components/angular/angular.js',
+          '<%= project.client %>/bower_components/angular-resource/angular-resource.js',
+          '<%= project.client %>/bower_components/angular-route/angular-route.js',
+          '<%= project.client %>/bower_components/jquery/dist/jquery.js',
           '<%= project.client %>/app/**/*.js',
         ],
         dest: '<%= project.dist %>/public/app/combined-scripts.js'
@@ -189,17 +193,17 @@ module.exports = function(grunt) {
       }
     },
 
-    htmlmin: {                                     // Task
+    htmlmin: {
       build: {
-        options: {                                 // Target options
+        options: {
           removeComments: true,
           collapseWhitespace: true
-        },                               // Target
-        files: [{                                  // Dictionary of files
+        },
+        files: [{
           expand: true,
-          cwd: '<%= project.dist %>/public',                             // Project root
-          src: '**/*.html',                        // Source
-          // dest: 'dist/'                            // Destination
+          cwd: '<%= project.dist %>/public',
+          src: '**/*.html',
+          // dest: 'dist/'
         }]
       }
   }
