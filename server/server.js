@@ -3,8 +3,8 @@
 var express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
-    // compress = require('compression');
+    mongoose = require('mongoose'),
+    compress = require('compression');
 
 var app = express();
 var router = express.Router();
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 // app.use(methodOverride('X-HTTP-Method-Override'));
 
-// app.use(express.compress());
+app.use(compress());
 
 var port = process.env.PORT || 3000;
 
