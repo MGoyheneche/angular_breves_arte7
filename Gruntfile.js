@@ -206,7 +206,19 @@ module.exports = function(grunt) {
           // dest: 'dist/'
         }]
       }
-  }
+    },
+
+    compress: {
+      build: {
+        options: {
+          mode: 'gzip'
+        },
+        expand: true,
+        cwd: '<%= project.dist %>/public',
+        src: ['**/*'],
+        // dest: 'assets/'
+      }
+    }
 
   });
 
@@ -234,6 +246,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
   // Default task(s).
   grunt.registerTask( 'default', [
@@ -256,6 +269,7 @@ module.exports = function(grunt) {
     'uglify:build',
     'copy:build',
     'htmlmin:build',
+    'compress:build',
   ]);
 
   // - dist/
