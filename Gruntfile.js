@@ -38,15 +38,14 @@ module.exports = function(grunt) {
     // Add vendor prefixed styles
     autoprefixer: {
       options: {
-        browsers: ['last 1 version']
+        // browsers: ['last 1 version']
       },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= project.tmp %>',
-          src: '{,*/}*.css',
-          dest: '<%= project.tmp %>'
-        }]
+      build: {
+        options: {
+            diff: true
+        },
+        src: '<%= project.dist %>/public/assets/styles/main.css',
+        dest: '<%= project.dist %>/public/assets/styles/main-prefixed.css'
       }
     },
 
@@ -174,6 +173,14 @@ module.exports = function(grunt) {
       }
     },
 
+    uglify: {
+      my_target: {
+        files: {
+          '<%= project.dist %>/public/app/combined-scripts.js': '<%= project.dist %>/public/app/combined-scripts.js'
+        }
+      }
+    },
+
   });
 
   // Used for delaying livereload until after server has restarted
@@ -197,13 +204,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Default task(s).
   grunt.registerTask( 'default', [
     'clean:dev',
     'clean:build',
     'less:dev',
-    'autoprefixer',
+    // 'autoprefixer',
     'concat:dev',
     'express:dev',
     'open:dev',
@@ -213,11 +221,14 @@ module.exports = function(grunt) {
   grunt.registerTask( 'build', [
     'clean:dev',
     'clean:build',
-    'autoprefixer',
-    'copy',
     'less:build',
+    'autoprefixer:build',
     'concat:build',
-    'express:prod',
+    'uglify',
+    'copy',
+    // 'less:build',
+    // 'concat:build',
+    // 'express:prod',
   ]);
 
   // - dist/
