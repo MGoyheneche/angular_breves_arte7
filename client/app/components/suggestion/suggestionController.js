@@ -138,7 +138,7 @@ angular.module('brevesApp').
           if (data.status === "error") {
             $scope.modalAlert({
               type: "error",
-              message: "Seuls les personnes déjà inscrites à la newsletter peutvent proposer une suggestion."
+              message: "Seules les personnes déjà inscrites à la newsletter peutvent proposer une suggestion."
             });
           } else {
             $scope.form.createSuggestionForm.$setUntouched(); // Clean form validation
@@ -199,7 +199,7 @@ angular.module('brevesApp').
             console.log("not a member");
             $scope.modalAlert({
               type: "error",
-              message: "Seuls les personnes déjà inscrites à la newsletter peuvent voter pour une suggestion."
+              message: "Seules les personnes déjà inscrites à la newsletter peuvent voter pour une suggestion."
             });
           } else {
             $scope.suggestions[index].voting.push($scope.suggestions[index].votingEmail);
