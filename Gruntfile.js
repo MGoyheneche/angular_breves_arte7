@@ -181,6 +181,11 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      options: {
+        compress: {
+          drop_console: true
+        }
+      },
       build: {
         files: {
           '<%= project.dist %>/public/app/app.min.js': '<%= project.dist %>/public/app/combined-scripts.js'
