@@ -15,7 +15,7 @@ angular.module('brevesApp').
 
           $scope.modalAlert({
             type: "success",
-            message: "Votre demande à bien été prise en compte, un email vous à été envoyé."
+            message: "Votre demande a bien été prise en compte, un email vous a été envoyé."
           });
         }).error(function(data, status, headers, config) {
           $scope.modalAlert({
@@ -34,7 +34,7 @@ angular.module('brevesApp').
 
           $scope.modalAlert({
             type: "success",
-            message: "Votre demande à bien été prise en compte, un email vous à été envoyé."
+            message: "Votre demande a bien été prise en compte, un email vous a été envoyé."
           });
         }).error(function(data, status, headers, config) {
           $scope.modalAlert({
