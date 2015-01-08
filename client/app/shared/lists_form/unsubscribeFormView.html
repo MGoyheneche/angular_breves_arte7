@@ -1,57 +1,41 @@
 <form name="unsubscribeForm" ng-submit="unsubscribeToList()" ng-controller="SubscribeFormController" novalidate>
-              <div class="wrapper">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="email">Adresse email</label>
-                    <input type="email"
-                           ng-class="{'has-error': unsubscribeForm.email.$invalid
-                                      && unsubscribeForm.email.$touched}"
-                           class="form-control"
-                           id="email"
-                           name="email"
-                           placeholder="votre@email.com"
-                           ng-model="unsubscriber.email"
-                           data-ng-minlength="3" required>
+  <div class="wrapper">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="email">Adresse email</label>
+        <input type="email"
+               ng-class="{'has-error': unsubscribeForm.email.$invalid
+                          && unsubscribeForm.email.$touched}"
+               class="form-control"
+               id="email"
+               name="email"
+               placeholder="votre@email.com"
+               ng-model="unsubscriber.email"
+               data-ng-minlength="3" required>
 
-                    <div ng-show="unsubscribeForm.email.$invalid
-                                  && unsubscribeForm.email.$touched"
-                         class="form-help-block">
-                      L'email que vous avez entré est invalide
-                    </div>
+        <div ng-show="unsubscribeForm.email.$invalid
+                      && unsubscribeForm.email.$touched"
+             class="form-help-block">
+          L'email que vous avez entré est invalide
+        </div>
 
-                    <div ng-show="unsubscribeForm.email.$error.required
-                                  && unsubscribeForm.email.$touched"
-                         class="form-help-block">
-                      Vous devez saisir une adresse Email
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-<!--               <div class="wrapper">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="lastname">Nom</label>
-                    <input type="text" class="form-control" id="lastname" placeholder="Doe">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="firstname">Prénom</label>
-                    <input type="text" class="form-control" id="firstname" placeholder="John">
-                  </div>
-                </div>
-              </div>
- -->
-              <div class="wrapper">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <input type="submit"
-                           class="btn btn-primary btn-full-width"
-                           id="subscribe-btn"
-                           ng-disabled="unsubscribeForm.$invalid"
-                           value="Se désabonner">
-                  </div>
-                </div>
-              </div>
-            </form>
+        <div ng-show="unsubscribeForm.email.$error.required
+                      && unsubscribeForm.email.$touched"
+             class="form-help-block">
+          Vous devez saisir une adresse Email
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <input type="submit"
+               class="btn btn-primary btn-full-width"
+               id="subscribe-btn"
+               ng-disabled="unsubscribeForm.$invalid"
+               value="Se désabonner">
+      </div>
+    </div>
+  </div>
+</form>

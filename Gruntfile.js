@@ -18,13 +18,13 @@ module.exports = function(grunt) {
       options: {
         paths: [
           '<%= project.client %>/bower_components',
-          // '<%= project.client %>/app',
+          '<%= project.client %>/app',
           '<%= project.client %>/assets/styles'
         ]
       },
       dev: {
         options: {
-          // sourceMap: true,
+          // sourceMap: false,
           // sourceMapFilename: 'main.map'
         },
         files: {
@@ -70,7 +70,6 @@ module.exports = function(grunt) {
                   'client/app/**/*.js',
                   'client/**/*.html',
                   '.tmp/assets/styles/main.css' ],
-        // tasks: ['wait'],
         options: {
           spawn: false // without this option specified express won't be reloaded
         }
@@ -83,7 +82,6 @@ module.exports = function(grunt) {
           banner : '\'use strict\';\n\n',
           process : function (src, filepath){
             return '/* '+filepath+' */\n(function(){\n\n'+src+'\n\n})();';
-            // return '/* '+filepath+' */\n'+src+'\n\n';
           }
         },
         src: [
@@ -121,7 +119,6 @@ module.exports = function(grunt) {
         // Override defaults here
       },
       dev: {
-        // tasks: ['wait'],
         options: {
           script: 'server/server.js'
         },
@@ -132,11 +129,6 @@ module.exports = function(grunt) {
           node_env: 'production'
         }
       },
-      test: {
-        // options: {
-        //   script: 'path/to/test/server.js'
-        // }
-      }
     },
 
     // open
@@ -158,18 +150,11 @@ module.exports = function(grunt) {
           src: [
             '*.{ico,png,txt}',
             'bower_components/**/*',
-            // 'assets/images/{,*/}*.{webp}',
-            // 'assets/fonts/',
             'assets/**/*',
             'index.html',
             'app/**/*'
           ]
         }, {
-        //   expand: true,
-        //   cwd: '<%= project.tmp %>/images',
-        //   dest: '<%= project.dist %>/public/assets/images',
-        //   src: ['generated/*']
-        // }, {
           expand: true,
           dest: '<%= project.dist %>',
           src: [
@@ -218,13 +203,70 @@ module.exports = function(grunt) {
 
     useminPrepare: {
       build: {
-        src: '<%= project.dist %>/public/index.html'
+        src: '<%= project.dist %>/public/index.html',
+            options: {
+        dest: '<%= project.dist %>/public/index.html'
+    }
+      }
+    },
+
+    filerev: {
+      options: {
+          encoding: 'utf8',
+          algorithm: 'md5',
+          length: 8
+      },
+      build: {
+        files: [{
+          src: [
+              // '<%= project.dist %>/public/index.html',
+              '<%= project.dist %>/public/assets/styles/main.min.css',
+              '<%= project.dist %>/public/app/app.min.js'
+          ]
+        }]
       }
     },
 
     usemin: {
       build: {
-        src: '<%= project.dist %>/public/index.html'
+        // html: ['<%= project.dist %>/public/index.html'],
+        // css: ['<%= project.dist %>/public/assets/styles/main.min.css'],
+        // js: ['<%= project.dist %>/public/app/app.min.js'],
+        src: '<%= project.dist %>/public/index.html',
+        options: {
+              // dirs: ['<%= project.dist %>/public/**'],
+
+          assetsDirs: [ '<%= project.dist %>',
+                        '<%= project.dist %>/',
+                        '<%= project.dist %>/public',
+                        '<%= project.dist %>/public/app',
+                        '<%= project.dist %>/public/app/',
+                        '<%= project.dist %>/public/assets',
+                        '<%= project.dist %>/public/assets/',
+                        '<%= project.dist %>/public/assets/styles',
+                        '<%= project.dist %>/public/assets/styles/',
+                        '<%= project.dist %>/public/'],
+          // blockReplacements: {
+          // css: function (block) {
+          //     grunt.log.debug(JSON.stringify(block.dest));
+          //     grunt.log.debug(JSON.stringify(grunt.filerev.summary));
+
+          //     return '<script src="'+block.dest+'"></script>';
+          //   }
+          // }
+        }
+        // html: ['<%= project.dist %>/public/*.html'],
+        // css: ['<%= project.dist %>/public/assets/assets/styles/main.min.css'],
+        // js: ['<%= project.dist %>/public/app/app.min.js'],
+        // options: {
+        //   dirs: ['<%= project.dist %>/public/'],
+        //   assetsDirs: ['<%= project.dist %>/public/'],
+        //   patterns: {
+        //     js: [
+        //         [/["']([^:"']+\.(?:png|gif|jpe?g))["']/img, 'Image replacement in js files']
+        //     ]
+        //   }
+        // }
       }
     },
 
@@ -240,30 +282,18 @@ module.exports = function(grunt) {
       }
     },
 
-    imagemin: {                          // Task
-      // static: {                          // Target
-      //   options: {                       // Target options
-      //     optimizationLevel: 3,
-      //     svgoPlugins: [{ removeViewBox: false }],
-      //     use: [mozjpeg()]
-      //   },
-      //   files: {                         // Dictionary of files
-      //     'dist/img.png': 'src/img.png', // 'destination': 'source'
-      //     'dist/img.jpg': 'src/img.jpg',
-      //     'dist/img.gif': 'src/img.gif'
-      //   }
-      // },
+    imagemin: {
       build: {
-        options: {                       // Target options
+        options: {
           optimizationLevel: 5,
           svgoPlugins: [{ removeViewBox: false }],
           use: [mozjpeg()]
-        },                        // Another target
+        },
         files: [{
-          expand: true,                  // Enable dynamic expansion
-          cwd: 'dist/',                   // Src matches are relative to this path
-          src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-          dest: 'dist/'                  // Destination path prefix
+          expand: true,
+          cwd: 'dist/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: 'dist/'
         }]
       }
     }
@@ -297,6 +327,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-filerev');
 
 
   // Default task(s).
@@ -306,7 +337,7 @@ module.exports = function(grunt) {
     'less:dev',
     'concat:dev',
     'express:dev',
-    // 'open:dev',
+    'open:dev',
     'watch'
   ]);
 
@@ -320,30 +351,11 @@ module.exports = function(grunt) {
     'uglify:build',
     'copy:build',
     'useminPrepare:build',
+    // 'filerev:build',
     'usemin:build',
     'htmlmin:build',
     'imagemin:build',
     // 'compress:build',
   ]);
-
-  // - dist/
-// Update server environment to modify path
-  //   - server/
-  //     - server.js
-  //     - youtube_movies.js
-
-  //   - public/
-  //     - app/
-  //       - app.min.js
-  //       - main.min.css
-  //       views/
-  //         - ...
-  //     - assets/
-  //       - images/
-  //         - ...
-  //       - fonts/
-  //         - ...
-  //     - bower_components/
-  //       - ...
 
 };

@@ -1,11 +1,11 @@
 <header>
   <nav class="navbar navbar-default navbar-fixed-top nav-primary" ng-class="{ retracted: retracted}" role="navigation">
     <div class="container">
-
-
       <div id="navbar" class="navbar-collapse collapse">
-            <a href="#/" ng-click="retracted=true;" class="nav-logotype"><img src="/assets/images/shared/logotype_ba+7.svg" alt="Brèves arte+7"></a>
-            <a id="hamburger-icon" ng-click="toogleNav()">☰</a>
+        <a href="#/" ng-click="retracted=true;" class="nav-logotype">
+          <img src="/assets/images/shared/logotype_ba+7.svg" alt="Brèves arte+7">
+        </a>
+        <a id="hamburger-icon" ng-click="toogleNav()">☰</a>
         <div class="nav-wrapper">
           <ul class="nav navbar-nav">
             <li ng-class="{ active: isActive('/')}" ng-click="toogleNav()">
@@ -21,10 +21,6 @@
               <a href="#/suggestion">Boîte à idées</a>
             </li>
           </ul>
-<!--
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#subscribe" ng-click="toogleNav()">S'abonner</a></li>
-          </ul> -->
         </div>
       </div><!--/.nav-collapse -->
     </div><!--/.navbar-header -->

@@ -14,8 +14,6 @@
           <div class="ctas">
             <a href="" ng-click="gotoElement('features')" class="btn btn-primary">Découvrir</a>
             <a href="" ng-click="gotoElement('subscribe')" class="btn btn-default">S'abonner</a>
-            <!-- <a href="#features" scroll-to class="btn btn-primary">Découvrir</a> -->
-            <!-- <a href="#subscribe" scroll-to class="btn btn-default">S'abonner</a> -->
           </div>
         </div>
       </div>
@@ -35,7 +33,6 @@
 
     </div>
   </header>
-  <!-- {{list.stats.member_count}} -->
   <div id="over" class="over invisible">
     <section id="features">
       <div class="container">
@@ -128,7 +125,6 @@
                 Brèves arte+7 est une newsletter complètement gratuite. N’hésitez pas à l’essayer. Vous pourrez toujours vous désabonner. Et ce, à tout moment.
               </p>
             </header>
-            <!-- <form name="subscribeForm" ng-submit="subscribeForm.$valid && subscribeToList()" novalidate> -->
             <ng-include src="'app/shared/lists_form/subscribeFormView.html'"></ng-include>
           </div>
         </div>
@@ -151,35 +147,6 @@
         <div class="wrapper">
           <ng-include src="'app/shared/suggestion/suggestionWidget.html'">
           </ng-include>
-
-<!--           <div class="suggestion">
-            <div class="panel-heading">
-              <div class="wrapper">
-                <div class="panel-title">
-                  <h3 class="suggestion-title">Brèves hebdomadaires</h3>
-                </div>
-                <div class="suggestion-vote-count">
-                  <span class="suggestion-vote-count-number">
-                    32
-                  </span>
-                  <span class="suggestion-vote-count-text">
-                    votes
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="panel-body">
-              <p>
-                Seriez vous interessé par un email hebdomadaire listant la sélection de vidéo de la semaine. <u>Cette sélection serait faite par arte ?</u>
-              </p>
-
-            </div>
-            <div class="panel-footer">
-              <div class="wrapper">
-                <a href="#" class="suggestion-vote-for btn btn-default btn-block btn-full-width">Oui, ça m’interesse.</a>
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="text-center">
           <a href="#/suggestion"
